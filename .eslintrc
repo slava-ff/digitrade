@@ -1,0 +1,93 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json"
+  },
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"]
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:react/recommended"
+      ],
+      "rules": {
+        "no-console": 1,
+        "max-len": 0,
+        /**
+         * General code conventions
+         */
+        "no-plusplus": 0,
+        "prefer-const": 1,
+        "import/prefer-default-export": 0,
+        "import/no-default-export": 2,
+        "import/no-cycle": 1,
+        "import/no-extraneous-dependencies": ["error", { "packageDir": "./" }],
+        "no-param-reassign": [
+          1,
+          {
+            "ignorePropertyModificationsFor": ["state"]
+          }
+        ],
+        "@typescript-eslint/no-floating-promises": 2,
+        "@typescript-eslint/no-misused-promises": 2,
+        /**
+         * React code conventions
+         */
+        "react/require-default-props": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/react-in-jsx-scope": 0,
+        "react/destructuring-assignment": 1,
+        /**
+         * Code styling
+         */
+        "dot-notation": "off",
+        "@typescript-eslint/dot-notation": "warn",
+        "import/order": "error",
+        "quotes": "off",
+        "@typescript-eslint/quotes": [2, "single"],
+        "semi": 0,
+        "@typescript-eslint/semi": [2, "always"],
+        "@typescript-eslint/comma-dangle": [2, "never"],
+        "padding-line-between-statements": "off",
+        "@typescript-eslint/padding-line-between-statements": [
+          1,
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": [
+              "block-like",
+              "multiline-expression",
+              "case",
+              "default",
+              "interface",
+              "type"
+            ]
+          },
+          {
+            "blankLine": "always",
+            "prev": ["block-like", "multiline-expression", "interface", "type"],
+            "next": "*"
+          }
+        ],
+        "object-curly-newline": [
+          "warn",
+          {
+            "ImportDeclaration": "never"
+          }
+        ],
+        "max-classes-per-file": "off"
+      }
+    }
+  ]
+}
