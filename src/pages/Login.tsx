@@ -1,51 +1,3 @@
-// import { useEffect } from "react"
-// import { useNavigate } from "react-router-dom"
-// import { useTranslation } from "react-i18next"
-// import { Typography } from '@mui/material';
-
-// import SignUpLayout from "components/SignUpLayout"
-// import LoginForm from "components/LoginForm"
-
-// export default function Login() {
-//   const { t } = useTranslation()
-//   const navigate = useNavigate()
-
-
-//   useEffect(() => {
-//     const token = localStorage.getItem("token")
-//     if (token) navigate("/", { replace: true })
-//   }, [])
-
-//   return (
-//     <SignUpLayout auth={false} languageSelector={true} className="Login">
-//       <Typography variant="h1">
-//         {t("logInHeader")}
-//       </Typography>
-//       <Typography variant="h2">
-//         {t("loginDescription")}
-//       </Typography>
-
-//       <LoginForm />
-      
-//       <div className="registration">
-//         <div className="title">
-//           <Typography variant="h3">
-//             {t("noAccount")}
-//           </Typography>
-//         </div>
-
-//         {/* <Button
-//           variant={ButtonVariant.BlueDark}
-//           color={TypColor.White}
-//           onClick={() => navigate("/signup")}
-//         >
-//           {t("register")}
-//         </Button> */}
-//       </div>
-//     </SignUpLayout>
-//   )
-// }
-
 import * as React from 'react';
 import {
   Button,
@@ -59,7 +11,9 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+
 import { ICustomTheme } from "utils/interfaces"
+import { useTranslation } from "i18n/i18n"
 
 // TO-DO LAYOUT!
 const loginLayout = {
@@ -102,19 +56,18 @@ const submitStyle = { mt: 3, mb: 2 }
 const copyrightStyle = { mt: 5 }
 
 const Copyright = (props: any) => {
+  const { t } = useTranslation()
+
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      {t("companyInfo")}
     </Typography>
   );
 }
 
 const Login = () => {
+  const { t } = useTranslation()
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -147,10 +100,10 @@ const Login = () => {
         >
           <Box sx={logoStyle} />
           <Typography component="h1" variant="h2" sx={{ mt: 1 }}>
-            Log In
+            {t("logIn")}
           </Typography>
           <Typography component="body" variant="body1">
-            Please fill your detail to access your account.
+            {t("loginDescription")}
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={boxFormStyle}>
             <TextField
@@ -158,7 +111,7 @@ const Login = () => {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label={t("emailAddress")}
               name="email"
               autoComplete="email"
               autoFocus
@@ -169,7 +122,7 @@ const Login = () => {
               required
               fullWidth
               name="password"
-              label="Password"
+              label={t("password")}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -177,7 +130,7 @@ const Login = () => {
 
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label={t("rememberMe")}
             />
 
             <Button
@@ -186,18 +139,18 @@ const Login = () => {
               variant="contained"
               sx={submitStyle}
             >
-              Log In
+              {t("logIn")}
             </Button>
 
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  {t("forgotPassword")}
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {t("dontHaveAccount")}
                 </Link>
               </Grid>
             </Grid>
