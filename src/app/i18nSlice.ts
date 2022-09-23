@@ -6,6 +6,7 @@ import { useAppSelector } from 'app/hooks'
 interface I18nSlice {
   i18n: {
     language: string
+    isRtl: boolean
     translations: { [key: string]: string }
   } | null
 }

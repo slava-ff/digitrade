@@ -61,7 +61,7 @@ export const useTranslation = () => {
   const t = (key: keyof Localization) => fetchedI18n?.i18n?.translations[key]
 
   const i18n = {
-    dir: () => "ltr"
+    dir: () => fetchedI18n?.i18n?.isRtl ? "rtl" : "ltr"
   }
 
   return { t, i18n }
