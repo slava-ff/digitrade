@@ -1,7 +1,7 @@
 export const mockConfig = {
   token: "123",
   theme: {
-    custom: {
+    brand: {
       brand50: "#F0EBFE",
       brand100: "#E2D8FD",
       brand200: "#C5B2FB",

@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
 interface ThemeSlice {
-  theme: object | null
+  theme: any
 }
 
 const initialState: ThemeSlice = {

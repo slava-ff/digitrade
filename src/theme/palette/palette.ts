@@ -2,13 +2,16 @@ import { colors } from './colors';
 
 export const palette = {
   // primary: {
-  //   dark: colors.blue[700],
-  //   main: colors.blue[500],
-  //   light: colors.blue[400],
+  //   main: "#8B65F7",
+  // },
+  // primary: {
+  //   dark: colors.red[700],
+  //   main: colors.red[500],
+  //   light: colors.red[300],
   //   contrastText: colors.grayscale[100],
   // },
   // secondary: {
-  //   main: colors.grayscale[100],
+  //   main: colors.red[100],
   //   contrastText: colors.blue[500],
   // },
   // success: {
@@ -29,7 +32,7 @@ export const palette = {
   //   light: colors.grayscale[400],
   // },
   // brand: {
-  //   main: colors.cyan[500],
+  //   main: colors.red[500],
   // },
   // black: colors.grayscale[900],
   // white: colors.grayscale[100],
