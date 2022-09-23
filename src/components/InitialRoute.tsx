@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react"
-import { Navigate, Outlet } from "react-router-dom"
+import { useEffect } from "react"
+import { Outlet } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
 import { mockConfig } from "utils/constants"
-import { RootState } from "app/store";
-import { useAppSelector, useAppDispatch } from 'app/hooks'
+import { useAppDispatch } from 'app/hooks'
 import { setTheme } from "app/slice"
 
 const InitialRoute = () => {
@@ -12,11 +11,11 @@ const InitialRoute = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    // fetch config
-    // set in Redux
+    // TO-DO: fetch config
     const config = mockConfig
+    const theme = { ...config.theme }
 
-    config.theme && dispatch(setTheme(config.theme))
+    theme && dispatch(setTheme(theme))
   }, [mockConfig])
 
   if (false) return <div>{t("loading")}...</div>

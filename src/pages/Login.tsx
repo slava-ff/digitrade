@@ -48,7 +48,6 @@
 
 import * as React from 'react';
 import {
-  Avatar,
   Button,
   CssBaseline,
   TextField,
@@ -60,12 +59,11 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ICustomTheme } from "utils/interfaces"
 
 // TO-DO LAYOUT!
 const loginLayout = {
-  isPicture: false,
+  isPicture: true,
   picLink: 'url(https://source.unsplash.com/random)',
   alignmentToTheLeft: false,
 }
@@ -73,7 +71,6 @@ const loginLayout = {
 const isPictureLeftAligned = loginLayout.isPicture && loginLayout.alignmentToTheLeft
 const isPictureRightAligned = loginLayout.isPicture && !loginLayout.alignmentToTheLeft
 
-const theme = createTheme()
 const gridContainerStyle = { height: '100vh', justifyContent: 'center' }
 const gridPictureStyle = {
   backgroundImage: loginLayout?.picLink || "",
@@ -117,7 +114,7 @@ const Copyright = (props: any) => {
   );
 }
 
-const SignInSide = () => {
+const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -130,103 +127,94 @@ const SignInSide = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={gridContainerStyle}>
-        <CssBaseline />
-        {isPictureLeftAligned && (<Grid
-          item
-          xs={false}
-          sm={6}
-          md={6}
-          sx={gridPictureStyle}
-        />)}
-        <Grid
-          item xs={12}
-          // sm={loginLayout.isPicture ? 6 : 12}
-          // md={loginLayout.isPicture ? 6 : 12}
-          sm={6}
-          md={6}
-          component={Paper}
-          elevation={0}
-          square
+    <Grid container component="main" sx={gridContainerStyle}>
+      <CssBaseline />
+      {isPictureLeftAligned && (<Grid
+        item
+        xs={false}
+        md={6}
+        sx={gridPictureStyle}
+      />)}
+      <Grid
+        item xs={12}
+        md={6}
+        component={Paper}
+        elevation={0}
+        square
+      >
+        <Box
+          sx={boxContainerStyle}
         >
-          <Box
-            sx={boxContainerStyle}
-          >
-            <Box sx={logoStyle}>
-              {/* <LockOutlinedIcon /> */}
-            </Box>
-            <Typography component="h1" variant="h2" sx={{ mt: 1 }}>
+          <Box sx={logoStyle} />
+          <Typography component="h1" variant="h2" sx={{ mt: 1 }}>
+            Log In
+          </Typography>
+          <Typography component="body" variant="body1">
+            Please fill your detail to access your account.
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleSubmit} sx={boxFormStyle}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={submitStyle}
+            >
               Log In
-            </Typography>
-            <Typography component="body" variant="body1">
-              Please fill your detail to access your account.
-            </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={boxFormStyle}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+            </Button>
 
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={submitStyle}
-              >
-                Log In
-              </Button>
-
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
               </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
 
-              <Copyright sx={copyrightStyle} />
+            <Copyright sx={copyrightStyle} />
 
-            </Box>
           </Box>
-        </Grid>
-        {isPictureRightAligned && (<Grid
-          item
-          xs={false}
-          sm={6}
-          md={6}
-          sx={gridPictureStyle}
-        />)}
+        </Box>
       </Grid>
-    </ThemeProvider>
+      {isPictureRightAligned && (<Grid
+        item
+        xs={false}
+        md={6}
+        sx={gridPictureStyle}
+      />)}
+    </Grid>
   );
 }
 
-export default SignInSide
+export default Login
