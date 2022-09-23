@@ -1,6 +1,7 @@
 import React from 'react';
-import "i18n/i18n"
-import { useTranslation } from 'react-i18next';
+// import "i18n/i18n"
+// import { useTranslation } from 'react-i18next';
+import { useTranslation } from "i18n/i18n";
 
 import Pages from "pages"
 import DynamicThemeProvider from "components/DynamicThemeProvider"

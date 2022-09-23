@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Navigate, Outlet } from "react-router-dom"
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "i18n/i18n"
 
 
 const PrivateRoute = () => {

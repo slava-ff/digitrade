@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 
-import { useAppSelector } from 'app/hooks'
-import { themeSelector } from "app/slice"
+import { themeSelector } from "app/themeSlice"
 import { Children } from "utils/interfaces"
 import theme from "theme/theme"
 
 const DynamicThemeProvider: React.FC<Children> = ({ children }) => {
   const [dynamicTheme, setDynamicTheme] = useState(theme)
-  const fetchedTheme = useAppSelector(themeSelector);
+  const fetchedTheme = themeSelector();
 
   useEffect(() => {
     if (fetchedTheme) {

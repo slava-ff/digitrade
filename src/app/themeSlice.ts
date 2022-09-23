@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
+import type { RootState } from 'app/store'
+import { useAppSelector } from 'app/hooks'
+// import { useAppDispatch } from 'app/hooks'
 
 interface ThemeSlice {
   theme: any
@@ -22,6 +24,12 @@ export const themeSlice = createSlice({
 
 export const { setTheme } = themeSlice.actions
 
-export const themeSelector = (state: RootState) => state.theme
+// export const dispatchTheme = (theme: object) => {
+//   const dispatch = useAppDispatch()
+
+//   dispatch(setTheme(theme))
+// }
+
+export const themeSelector = () => useAppSelector((state: RootState) => state.theme)
 
 export default themeSlice.reducer
