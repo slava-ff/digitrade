@@ -23,6 +23,7 @@ export const mockConfig = {
   },
   i18n: {
     language: "en",
+    isRtl: false,
     translations: {
       "loading": "Loading...",
       "logIn": "Log In",
