@@ -1,5 +1,6 @@
 export const typography = {
   // fontSize: 16,
+  fontFamily: '"Noto Sans", sans-serif',
   // htmlFontSize: 10,
   // small1: {
   //   fontSize: 12,
@@ -11,33 +12,36 @@ export const typography = {
   //   fontWeight: 400,
   //   lineHeight: '1.8rem',
   // },
-  // body1: {
-  //   fontSize: 18,
-  //   fontWeight: 400,
-  //   lineHeight: '2.2rem',
-  // },
-  // body2: {
-  //   fontSize: 16,
-  //   fontWeight: 400,
-  //   lineHeight: '2rem',
-  // },
-  // body3: {
-  //   fontSize: 14,
-  //   fontWeight: 400,
-  //   lineHeight: '1.8rem',
-  // },
-  // h1: {
-  //   fontSize: 48,
-  //   lineHeight: '6rem',
-  // },
-  // h2: {
-  //   fontSize: 38,
-  //   lineHeight: '4.7rem',
-  // },
-  // h3: {
-  //   fontSize: 28,
-  //   lineHeight: '3.5rem',
-  // },
+  body1: {
+    fontSize: 16,
+    fontWeight: 400,
+    lineHeight: '2rem',
+  },
+  body2: {
+    fontSize: 14,
+    fontWeight: 400,
+    lineHeight: '1.8rem',
+  },
+  body3: {
+    fontSize: 12,
+    fontWeight: 400,
+    lineHeight: '1.6rem',
+  },
+  h1: {
+    fontSize: 32,
+    fontWeight: 700,
+    lineHeight: '4rem',
+  },
+  h2: {
+    fontSize: 28,
+    fontWeight: 700,
+    lineHeight: '3.5rem',
+  },
+  h3: {
+    fontSize: 24,
+    fontWeight: 700,
+    lineHeight: '3rem',
+  },
   // h4: {
   //   fontSize: 18,
   //   lineHeight: '2.4rem',

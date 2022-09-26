@@ -1,6 +1,7 @@
 import React from "react"
 import { useForm, Controller, SubmitHandler } from "react-hook-form"
-import {TextField, TextFieldProps} from '@mui/material'
+import TextField from '@mui/material/TextField'
+import TextFieldProps from '@mui/material/TextField'
 
 interface IFormInput {
   email: string;

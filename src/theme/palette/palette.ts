@@ -1,5 +1,6 @@
 import { colors } from './colors';
 
+// primary and secondary come from BackEnd
 export const palette = {
   // primary: {
   //   main: "#8B65F7",
@@ -36,5 +37,5 @@ export const palette = {
   // },
   // black: colors.grayscale[900],
   // white: colors.grayscale[100],
-  // ...colors,
+  ...colors,
 };
