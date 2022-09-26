@@ -1,19 +1,19 @@
-import * as React from 'react';
-import {
-  Button,
-  CssBaseline,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Link,
-  Paper,
-  Box,
-  Grid,
-  Typography,
-} from '@mui/material';
+import * as React from 'react'
+import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline'
+import TextField from '@mui/material/TextField'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import Link from '@mui/material/Link'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Paper from '@mui/material/Paper'
+import InputLabel from '@mui/material/InputLabel'
 
 import { ICustomTheme } from "utils/interfaces"
 import { useTranslation } from "i18n/i18n"
+import TextFieldCustom from "components/TextFieldCustom"
 
 // TO-DO LAYOUT!
 const loginLayout = {
@@ -35,7 +35,7 @@ const gridPictureStyle = {
   backgroundPosition: 'center',
 }
 const boxContainerStyle = {
-  my: 8,
+  my: 4,
   mx: 4,
   display: 'flex',
   flexDirection: 'column',
@@ -51,6 +51,8 @@ const logoStyle = {
   width: 320,
   height: 180,
 }
+const loginStyle = { mt: 1 }
+const loginDescriptionStyle = { fontWeight: 500 }
 const boxFormStyle = { mt: 1 }
 const submitStyle = { mt: 3, mb: 2 }
 const copyrightStyle = { mt: 5 }
@@ -99,14 +101,19 @@ const Login = () => {
           sx={boxContainerStyle}
         >
           <Box sx={logoStyle} />
-          <Typography component="h1" variant="h2" sx={{ mt: 1 }}>
+          <Typography component="h1" variant="h2" sx={loginStyle}>
             {t("logIn")}
           </Typography>
-          <Typography component="body" variant="body1">
+          <Typography component="body" variant="body1" sx={loginDescriptionStyle}>
             {t("loginDescription")}
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={boxFormStyle}>
-            <TextField
+            
+            {/* <InputLabel htmlFor="email">
+              {t("emailAddress")}
+            </InputLabel> */}
+            {/* <TextField
+              placeholder='Enter your email'
               margin="normal"
               required
               fullWidth
@@ -114,24 +121,30 @@ const Login = () => {
               label={t("emailAddress")}
               name="email"
               autoComplete="email"
-              autoFocus
+              InputLabelProps={{ disableAnimation: true, sx: [] }}
+            /> */}
+            <TextFieldCustom 
+              label={t("emailAddress")}
+              placeholder={t("emailPlaceholder")}
             />
-            
+            <TextFieldCustom 
+              label={t("password")}
+              placeholder={t("passwordPlaceholder")}
+              isPassword
+            />
+            {/* <InputLabel htmlFor="password">
+              {t("password")}
+            </InputLabel>
             <TextField
+              placeholder='Enter password'
               margin="normal"
               required
               fullWidth
               name="password"
-              label={t("password")}
               type="password"
               id="password"
               autoComplete="current-password"
-            />
-
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label={t("rememberMe")}
-            />
+            /> */}
 
             <Button
               type="submit"

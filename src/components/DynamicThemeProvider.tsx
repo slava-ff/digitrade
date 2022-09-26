@@ -14,7 +14,9 @@ const DynamicThemeProvider: React.FC<Children> = ({ children }) => {
       const newTheme = createTheme(theme, {
         palette: {
           primary: {
-            main: fetchedTheme.theme?.brand?.brand500,
+            ligth: fetchedTheme.theme?.brand[300],
+            main: fetchedTheme.theme?.brand[500],
+            dark: fetchedTheme.theme?.brand[600],
           },
           brand: fetchedTheme.theme?.brand,
         }
