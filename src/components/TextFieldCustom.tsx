@@ -8,16 +8,13 @@ import IconButton from '@mui/material/IconButton'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
+import { IState } from 'utils/interfaces'
+
 interface ITextFieldCustom {
   label?: string
   defaultValue?: string
   placeholder?: string
   isPassword?: boolean
-}
-
-interface IState {
-  password: string;
-  showPassword: boolean;
 }
 
 const boxStyle = {
@@ -34,6 +31,7 @@ export default function TextFieldCustom({
   isPassword = false,
 }: ITextFieldCustom) {
   const [values, setValues] = React.useState<IState>({
+    email: '',
     password: '',
     showPassword: false,
   });
