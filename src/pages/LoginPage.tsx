@@ -10,8 +10,12 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Paper from '@mui/material/Paper'
 import InputLabel from '@mui/material/InputLabel'
+import InputAdornment from '@mui/material/InputAdornment'
+import IconButton from '@mui/material/IconButton'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
-import { ICustomTheme } from "utils/interfaces"
+import { ICustomTheme, IState } from "utils/interfaces"
 import { useTranslation } from "i18n/i18n"
 import TextFieldCustom from "components/TextFieldCustom"
 
@@ -64,22 +68,44 @@ const Copyright = (props: any) => {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {t("companyInfo")}
     </Typography>
-  );
+  )
 }
 
 const Login = () => {
   const { t } = useTranslation()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const [values, setValues] = React.useState<IState>({
+    email: '',
+    password: '',
+    showPassword: false,
+  })
 
-    const data = new FormData(event.currentTarget);
+  const handleChange = (prop: keyof IState) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const data = new FormData(event.currentTarget)
 
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
-  };
+  }
+
+  const handleClickShowPassword = () => {
+    console.log("!values.showPassword", !values.showPassword)
+    setValues({
+      ...values,
+      showPassword: !values.showPassword,
+    })
+  }
+
+  const handleMouseDownUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+  }
 
   return (
     <Grid container component="main" sx={gridContainerStyle}>
@@ -108,22 +134,8 @@ const Login = () => {
             {t("loginDescription")}
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={boxFormStyle}>
-            
-            {/* <InputLabel htmlFor="email">
-              {t("emailAddress")}
-            </InputLabel> */}
-            {/* <TextField
-              placeholder='Enter your email'
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label={t("emailAddress")}
-              name="email"
-              autoComplete="email"
-              InputLabelProps={{ disableAnimation: true, sx: [] }}
-            /> */}
-            <TextFieldCustom 
+
+            {/* <TextFieldCustom 
               label={t("emailAddress")}
               placeholder={t("emailPlaceholder")}
             />
@@ -131,20 +143,47 @@ const Login = () => {
               label={t("password")}
               placeholder={t("passwordPlaceholder")}
               isPassword
-            />
-            {/* <InputLabel htmlFor="password">
-              {t("password")}
-            </InputLabel>
+            /> */}
+
             <TextField
-              placeholder='Enter password'
+              placeholder={t("emailPlaceholder")}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label={t("emailAddress")}
+              name="email"
+              autoComplete="email"
+              onChange={handleChange("email")}
+              value={values.email}
+            />
+            <TextField
+              placeholder={t("passwordPlaceholder")}
               margin="normal"
               required
               fullWidth
               name="password"
-              type="password"
+              type={values.showPassword ? 'text' : 'password'}
               id="password"
+              label={t("password")}
               autoComplete="current-password"
-            /> */}
+              value={values.password}
+              onChange={handleChange("password")}
+              InputProps={{
+                endAdornment:
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onMouseDown={handleMouseDownUpPassword}
+                      onMouseUp={handleMouseDownUpPassword}
+                      onClick={handleClickShowPassword}
+                      edge="end"
+                    >
+                      {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+              }}
+            />
 
             <Button
               type="submit"
