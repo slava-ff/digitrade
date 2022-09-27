@@ -84,6 +84,7 @@ const Login = () => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  // TO-DO: post login data
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
@@ -184,6 +185,15 @@ const Login = () => {
                   </InputAdornment>
               }}
             />
+            
+            <Grid container>
+              <Grid item xs />
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {t("forgotPassword")}
+                </Link>
+              </Grid>
+            </Grid>
 
             <Button
               type="submit"
@@ -195,11 +205,6 @@ const Login = () => {
             </Button>
 
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  {t("forgotPassword")}
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
                   {t("dontHaveAccount")}
