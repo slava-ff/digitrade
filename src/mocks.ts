@@ -34,7 +34,7 @@ export const mockConfig = {
       "password": "Password",
       "passwordPlaceholder": "Enter password",
       "rememberMe": "Remember me",
-      "forgotPassword": "Forgot Password?",
+      "forgotPassword": "Forgot Password",
       "dontHaveAccount": "Don’t have an account?",
       "signUp": "Sign Up",
       "companyInfo": "© COMPANY INFO",
