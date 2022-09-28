@@ -1,4 +1,4 @@
-import { colors } from './colors';
+import { colors } from './colors'
 
 // primary and secondary come from BackEnd
 export const palette = {
@@ -38,4 +38,4 @@ export const palette = {
   // black: colors.grayscale[900],
   // white: colors.grayscale[100],
   ...colors,
-};
+}

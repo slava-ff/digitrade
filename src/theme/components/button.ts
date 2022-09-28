@@ -2,8 +2,8 @@ export default {
   MuiButton: {
     styleOverrides: {
       root: {
-        textTransform: "none",
+        textTransform: 'none',
       },
     },
   },
-};
+}

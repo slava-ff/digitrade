@@ -1,6 +1,6 @@
-import { baseTheme } from 'theme/baseTheme';
+import { baseTheme } from 'theme/baseTheme'
 
-const { typography } = baseTheme;
+const { typography } = baseTheme
 
 export default {
   // styleOverrides: {
@@ -11,4 +11,4 @@ export default {
   //     ...typography.body2,
   //   },
   // },
-};
+}

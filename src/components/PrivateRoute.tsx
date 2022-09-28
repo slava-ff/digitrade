@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react"
-import { Navigate, Outlet } from "react-router-dom"
-import { useTranslation } from "i18n/i18n"
-
+import { useEffect, useState } from 'react'
+import { Navigate, Outlet } from 'react-router-dom'
+import { useTranslation } from 'i18n/i18n'
 
 const PrivateRoute = () => {
   const { t } = useTranslation()
@@ -13,7 +12,7 @@ const PrivateRoute = () => {
     // check token
   }, [])
 
-  if (false) return <div>{t("loading")}...</div>
+  if (false) return <div>{t('loading')}...</div>
   if (false) return <Outlet />
 
   return <Navigate to="/login" />

@@ -1,4 +1,4 @@
-import { colors } from 'theme/palette/colors';
+import { colors } from 'theme/palette/colors'
 
 export default {
   MuiInputLabel: {
@@ -6,14 +6,14 @@ export default {
       root: {
         fontSize: 12,
         fontWeight: 700,
-        transform: "none",
-        position: "relative",
+        transform: 'none',
+        position: 'relative',
         marginBottom: 4,
         color: colors.grey[600],
-        "&.Mui-focused": {
+        '&.Mui-focused': {
           color: colors.grey[600],
-        }
+        },
       },
     },
   },
-};
+}

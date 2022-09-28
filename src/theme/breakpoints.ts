@@ -5,5 +5,5 @@ export const breakpoints = {
     md: 720,
     lg: 960,
     xl: 1280,
-  }
-};
+  },
+}
