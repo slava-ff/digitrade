@@ -42,8 +42,10 @@ type Localization = {
   email: string
   emailAddress: string
   emailPlaceholder: string
+  emailValidation: string
   password: string
   passwordPlaceholder: string
+  passwordValidation: string
   rememberMe: string
   forgotPassword: string
   dontHaveAccount: string

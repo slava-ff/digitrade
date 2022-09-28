@@ -14,12 +14,6 @@ export interface ILoginInput {
   password: string
 }
 
-export interface IState {
-  email: string
-  password: string
-  showPassword: boolean
-}
-
 export interface ICustomTheme extends Theme {
   // status: {
   //   danger: string

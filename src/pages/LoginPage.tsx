@@ -1,5 +1,10 @@
 import * as React from 'react'
-import { useForm, Controller, SubmitHandler } from 'react-hook-form'
+import {
+  useForm,
+  Controller,
+  SubmitHandler,
+  DefaultValues,
+} from 'react-hook-form'
 import {
   Button,
   CssBaseline,
@@ -12,11 +17,10 @@ import {
   InputAdornment,
   IconButton,
 } from '@mui/material'
-import { VisibilityOff, Visibility } from '@mui/icons-material'
+import { VisibilityOff, Visibility, RuleSharp } from '@mui/icons-material'
 
-import { ICustomTheme, IState } from 'utils/interfaces'
+import { ICustomTheme, ILoginInput } from 'utils/interfaces'
 import { useTranslation } from 'i18n/i18n'
-import TextFieldCustom from 'components/TextFieldCustom'
 
 // TO-DO LAYOUT!
 const loginLayout = {
@@ -80,35 +84,24 @@ const Copyright = (props: any) => {
 const Login = () => {
   const { t } = useTranslation()
 
-  const [values, setValues] = React.useState<IState>({
+  const defaultValues: DefaultValues<ILoginInput> = {
     email: '',
     password: '',
-    showPassword: false,
-  })
-
-  const handleChange =
-    (prop: keyof IState) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setValues({ ...values, [prop]: event.target.value })
-    }
-
-  // TO-DO: post login data
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    const data = new FormData(event.currentTarget)
-
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
   }
 
-  const handleClickShowPassword = () => {
-    console.log('!values.showPassword', !values.showPassword)
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    })
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<ILoginInput>({
+    defaultValues,
+  })
+
+  const [showPassword, setShowPassword] = React.useState<boolean>(false)
+
+  // TO-DO: post login data
+  const onSubmit: SubmitHandler<ILoginInput> = (data) => {
+    console.log('onSubmit:', data)
   }
 
   const handleMouseDownUpPassword = (
@@ -129,68 +122,69 @@ const Login = () => {
           <Typography component="h1" variant="h2" sx={loginStyle}>
             {t('logIn')}
           </Typography>
-          <Typography
-            component="body"
-            variant="body1"
-            sx={loginDescriptionStyle}
-          >
+          <Typography variant="body1" sx={loginDescriptionStyle}>
             {t('loginDescription')}
           </Typography>
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             sx={boxFormStyle}
           >
-            {/* <TextFieldCustom 
-              label={t("emailAddress")}
-              placeholder={t("emailPlaceholder")}
-            />
-            <TextFieldCustom 
-              label={t("password")}
-              placeholder={t("passwordPlaceholder")}
-              isPassword
-            /> */}
-
-            <TextField
-              placeholder={t('emailPlaceholder')}
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label={t('emailAddress')}
+            <Controller
               name="email"
-              autoComplete="email"
-              onChange={handleChange('email')}
-              value={values.email}
+              rules={{ required: t('emailValidation') }}
+              control={control}
+              render={({ field, fieldState: { invalid, error } }) => (
+                <TextField
+                  placeholder={t('emailPlaceholder')}
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label={t('emailAddress')}
+                  autoComplete="email"
+                  error={!!error}
+                  helperText={error && error.message}
+                  {...field}
+                />
+              )}
             />
-            <TextField
-              placeholder={t('passwordPlaceholder')}
-              margin="normal"
-              required
-              fullWidth
+
+            <Controller
               name="password"
-              type={values.showPassword ? 'text' : 'password'}
-              id="password"
-              label={t('password')}
-              autoComplete="current-password"
-              value={values.password}
-              onChange={handleChange('password')}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onMouseDown={handleMouseDownUpPassword}
-                      onMouseUp={handleMouseDownUpPassword}
-                      onClick={handleClickShowPassword}
-                      edge="end"
-                    >
-                      {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
+              rules={{ required: t('passwordValidation') }}
+              control={control}
+              render={({ field, fieldState: { invalid, error } }) => (
+                <TextField
+                  placeholder={t('passwordPlaceholder')}
+                  margin="normal"
+                  required
+                  fullWidth
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  label={t('password')}
+                  autoComplete="current-password"
+                  error={!!error}
+                  helperText={error && error.message}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onMouseDown={handleMouseDownUpPassword}
+                          onMouseUp={handleMouseDownUpPassword}
+                          onClick={() => setShowPassword(!showPassword)}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                  {...field}
+                />
+              )}
             />
 
             <Grid container>
