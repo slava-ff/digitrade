@@ -1,23 +1,22 @@
 import * as React from 'react'
-import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline'
-import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
-import Link from '@mui/material/Link'
-import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
-import InputLabel from '@mui/material/InputLabel'
-import InputAdornment from '@mui/material/InputAdornment'
-import IconButton from '@mui/material/IconButton'
-import Visibility from '@mui/icons-material/Visibility'
-import VisibilityOff from '@mui/icons-material/VisibilityOff'
+import { useForm, Controller, SubmitHandler } from 'react-hook-form'
+import {
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Paper,
+  InputAdornment,
+  IconButton,
+} from '@mui/material'
+import { VisibilityOff, Visibility } from '@mui/icons-material'
 
-import { ICustomTheme, IState } from "utils/interfaces"
-import { useTranslation } from "i18n/i18n"
-import TextFieldCustom from "components/TextFieldCustom"
+import { ICustomTheme, IState } from 'utils/interfaces'
+import { useTranslation } from 'i18n/i18n'
+import TextFieldCustom from 'components/TextFieldCustom'
 
 // TO-DO LAYOUT!
 const loginLayout = {
@@ -26,12 +25,14 @@ const loginLayout = {
   alignmentToTheLeft: false,
 }
 
-const isPictureLeftAligned = loginLayout.isPicture && loginLayout.alignmentToTheLeft
-const isPictureRightAligned = loginLayout.isPicture && !loginLayout.alignmentToTheLeft
+const isPictureLeftAligned =
+  loginLayout.isPicture && loginLayout.alignmentToTheLeft
+const isPictureRightAligned =
+  loginLayout.isPicture && !loginLayout.alignmentToTheLeft
 
 const gridContainerStyle = { height: '100vh', justifyContent: 'center' }
 const gridPictureStyle = {
-  backgroundImage: loginLayout?.picLink || "",
+  backgroundImage: loginLayout?.picLink || '',
   backgroundRepeat: 'no-repeat',
   backgroundColor: (t: ICustomTheme) =>
     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -44,13 +45,13 @@ const boxContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
 }
-const logoStyle = { 
+const logoStyle = {
   backgroundImage: 'url(https://picsum.photos/320/180)',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   // m: 1,
-  bgcolor: 'secondary.main', 
+  bgcolor: 'secondary.main',
   alignSelf: 'center',
   width: 320,
   height: 180,
@@ -65,8 +66,13 @@ const Copyright = (props: any) => {
   const { t } = useTranslation()
 
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {t("companyInfo")}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {t('companyInfo')}
     </Typography>
   )
 }
@@ -80,9 +86,10 @@ const Login = () => {
     showPassword: false,
   })
 
-  const handleChange = (prop: keyof IState) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+  const handleChange =
+    (prop: keyof IState) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setValues({ ...values, [prop]: event.target.value })
+    }
 
   // TO-DO: post login data
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -93,49 +100,48 @@ const Login = () => {
     console.log({
       email: data.get('email'),
       password: data.get('password'),
-    });
+    })
   }
 
   const handleClickShowPassword = () => {
-    console.log("!values.showPassword", !values.showPassword)
+    console.log('!values.showPassword', !values.showPassword)
     setValues({
       ...values,
       showPassword: !values.showPassword,
     })
   }
 
-  const handleMouseDownUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDownUpPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     event.preventDefault()
   }
 
   return (
     <Grid container component="main" sx={gridContainerStyle}>
       <CssBaseline />
-      {isPictureLeftAligned && (<Grid
-        item
-        xs={false}
-        md={6}
-        sx={gridPictureStyle}
-      />)}
-      <Grid
-        item xs={12}
-        md={6}
-        component={Paper}
-        elevation={0}
-        square
-      >
-        <Box
-          sx={boxContainerStyle}
-        >
+      {isPictureLeftAligned && (
+        <Grid item xs={false} md={6} sx={gridPictureStyle} />
+      )}
+      <Grid item xs={12} md={6} component={Paper} elevation={0} square>
+        <Box sx={boxContainerStyle}>
           <Box sx={logoStyle} />
           <Typography component="h1" variant="h2" sx={loginStyle}>
-            {t("logIn")}
+            {t('logIn')}
           </Typography>
-          <Typography component="body" variant="body1" sx={loginDescriptionStyle}>
-            {t("loginDescription")}
+          <Typography
+            component="body"
+            variant="body1"
+            sx={loginDescriptionStyle}
+          >
+            {t('loginDescription')}
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={boxFormStyle}>
-
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={boxFormStyle}
+          >
             {/* <TextFieldCustom 
               label={t("emailAddress")}
               placeholder={t("emailPlaceholder")}
@@ -147,31 +153,31 @@ const Login = () => {
             /> */}
 
             <TextField
-              placeholder={t("emailPlaceholder")}
+              placeholder={t('emailPlaceholder')}
               margin="normal"
               required
               fullWidth
               id="email"
-              label={t("emailAddress")}
+              label={t('emailAddress')}
               name="email"
               autoComplete="email"
-              onChange={handleChange("email")}
+              onChange={handleChange('email')}
               value={values.email}
             />
             <TextField
-              placeholder={t("passwordPlaceholder")}
+              placeholder={t('passwordPlaceholder')}
               margin="normal"
               required
               fullWidth
               name="password"
               type={values.showPassword ? 'text' : 'password'}
               id="password"
-              label={t("password")}
+              label={t('password')}
               autoComplete="current-password"
               value={values.password}
-              onChange={handleChange("password")}
+              onChange={handleChange('password')}
               InputProps={{
-                endAdornment:
+                endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
@@ -183,14 +189,15 @@ const Login = () => {
                       {values.showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   </InputAdornment>
+                ),
               }}
             />
-            
+
             <Grid container>
               <Grid item xs />
               <Grid item>
                 <Link href="#" variant="body2">
-                  {t("forgotPassword")}
+                  {t('forgotPassword')}
                 </Link>
               </Grid>
             </Grid>
@@ -201,30 +208,26 @@ const Login = () => {
               variant="contained"
               sx={submitStyle}
             >
-              {t("logIn")}
+              {t('logIn')}
             </Button>
 
             <Grid container>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {t("dontHaveAccount")}
+                  {t('dontHaveAccount')}
                 </Link>
               </Grid>
             </Grid>
 
             <Copyright sx={copyrightStyle} />
-
           </Box>
         </Box>
       </Grid>
-      {isPictureRightAligned && (<Grid
-        item
-        xs={false}
-        md={6}
-        sx={gridPictureStyle}
-      />)}
+      {isPictureRightAligned && (
+        <Grid item xs={false} md={6} sx={gridPictureStyle} />
+      )}
     </Grid>
-  );
+  )
 }
 
 export default Login
