@@ -1,5 +1,5 @@
-import axios from "axios"
-import { API_URL } from "utils/constants"
+import axios from 'axios'
+import { API_URL } from 'utils/constants'
 
 export type FetchParams = {
   body?: string
@@ -10,9 +10,7 @@ export type FetchParams = {
 const client = axios.create()
 
 export const fetchApi = (url: string, params: FetchParams = {}) =>
-  client
-    .get(`${API_URL}/${url}`, { params })
-    .then((res) => res.data)
+  client.get(`${API_URL}/${url}`, { params }).then((res) => res.data)
 
 const defaultFetch = (url: string) =>
   axios.get(`${API_URL}/${url}`).then((res) => res.data)

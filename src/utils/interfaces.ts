@@ -1,4 +1,4 @@
-import { Theme, ThemeOptions } from '@mui/material/styles';
+import { Theme, ThemeOptions } from '@mui/material/styles'
 
 export type Children = {
   children: React.ReactNode

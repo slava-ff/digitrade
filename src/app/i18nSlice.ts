@@ -19,7 +19,8 @@ export const i18nSlice = createSlice({
   name: 'i18n',
   initialState,
   reducers: {
-    setI18n: (state, action: any) => { // PayloadAction<object>) => {
+    setI18n: (state, action: any) => {
+      // PayloadAction<object>) => {
       state.i18n = action.payload
     },
   },
@@ -27,6 +28,7 @@ export const i18nSlice = createSlice({
 
 export const { setI18n } = i18nSlice.actions
 
-export const i18nSelector = () => useAppSelector((state: RootState) => state.i18n)
+export const i18nSelector = () =>
+  useAppSelector((state: RootState) => state.i18n)
 
 export default i18nSlice.reducer

@@ -30,6 +30,7 @@ export const { setTheme } = themeSlice.actions
 //   dispatch(setTheme(theme))
 // }
 
-export const themeSelector = () => useAppSelector((state: RootState) => state.theme)
+export const themeSelector = () =>
+  useAppSelector((state: RootState) => state.theme)
 
 export default themeSlice.reducer

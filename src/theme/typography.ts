@@ -46,4 +46,4 @@ export const typography = {
   //   fontSize: 18,
   //   lineHeight: '2.4rem',
   // },
-};
+}

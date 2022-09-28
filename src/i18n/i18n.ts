@@ -2,7 +2,7 @@
 // import { initReactI18next } from "react-i18next"
 // import LanguageDetector from 'i18next-browser-languagedetector';
 
-import { i18nSelector } from "app/i18nSlice"
+import { i18nSelector } from 'app/i18nSlice'
 
 // const resources = {
 //   language: {},
@@ -56,12 +56,12 @@ type Localization = {
 // }
 
 export const useTranslation = () => {
-  const fetchedI18n = i18nSelector();
+  const fetchedI18n = i18nSelector()
 
   const t = (key: keyof Localization) => fetchedI18n?.i18n?.translations[key]
 
   const i18n = {
-    dir: () => fetchedI18n?.i18n?.isRtl ? "rtl" : "ltr"
+    dir: () => (fetchedI18n?.i18n?.isRtl ? 'rtl' : 'ltr'),
   }
 
   return { t, i18n }

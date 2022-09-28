@@ -7,4 +7,4 @@ export const components = {
   MuiCssBaseline,
   // ...MuiInputLabel,
   // ...MuiButton,
-} as Partial<Components>;
+} as Partial<Components>
