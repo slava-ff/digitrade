@@ -7,6 +7,7 @@ import { useAppDispatch } from 'app/hooks'
 // import { dispatchTheme } from "app/themeSlice"
 import { setTheme } from 'app/themeSlice'
 import { setI18n } from 'app/i18nSlice'
+import { setLayout } from 'app/layoutSlice'
 
 const InitialRoute = () => {
   const { t } = useTranslation()
@@ -18,6 +19,7 @@ const InitialRoute = () => {
 
     config.theme && dispatch(setTheme(config.theme))
     config.i18n && dispatch(setI18n(config.i18n))
+    config.layout && dispatch(setLayout(config.layout))
   }, [mockConfig])
 
   if (false) return <div>{t('loading')}...</div>

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useEffect, useState } from 'react'
 import {
   useForm,
   Controller,
@@ -20,23 +21,11 @@ import {
 import { VisibilityOff, Visibility, RuleSharp } from '@mui/icons-material'
 
 import { ICustomTheme, ILoginInput } from 'utils/interfaces'
+import { layoutSelector } from 'app/layoutSlice'
 import { useTranslation } from 'i18n/i18n'
-
-// TO-DO LAYOUT!
-const loginLayout = {
-  isPicture: true,
-  picLink: 'url(https://source.unsplash.com/random)',
-  alignmentToTheLeft: false,
-}
-
-const isPictureLeftAligned =
-  loginLayout.isPicture && loginLayout.alignmentToTheLeft
-const isPictureRightAligned =
-  loginLayout.isPicture && !loginLayout.alignmentToTheLeft
 
 const gridContainerStyle = { height: '100vh', justifyContent: 'center' }
 const gridPictureStyle = {
-  backgroundImage: loginLayout?.picLink || '',
   backgroundRepeat: 'no-repeat',
   backgroundColor: (t: ICustomTheme) =>
     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -44,13 +33,15 @@ const gridPictureStyle = {
   backgroundPosition: 'center',
 }
 const boxContainerStyle = {
-  my: 4,
-  mx: 4,
+  mt: 4,
+  mb: 1.5,
+  mx: 'auto',
+  px: 1,
+  maxWidth: 'calc(360px + 1rem)',
   display: 'flex',
   flexDirection: 'column',
 }
 const logoStyle = {
-  backgroundImage: 'url(https://picsum.photos/320/180)',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
@@ -64,7 +55,7 @@ const loginStyle = { mt: 1 }
 const loginDescriptionStyle = { fontWeight: 500 }
 const boxFormStyle = { mt: 1 }
 const submitStyle = { mt: 3, mb: 2 }
-const copyrightStyle = { mt: 5 }
+const copyrightStyle = { mt: 4 }
 
 const Copyright = (props: any) => {
   const { t } = useTranslation()
@@ -83,6 +74,25 @@ const Copyright = (props: any) => {
 
 const Login = () => {
   const { t } = useTranslation()
+  const fetchedLayout = layoutSelector()
+  const [dynamicLayout, setDynamicLayout] = useState(fetchedLayout)
+
+  useEffect(() => {
+    if (fetchedLayout) {
+      setDynamicLayout(fetchedLayout)
+    }
+  }, [fetchedLayout])
+
+  const isPictureLeftAligned =
+    dynamicLayout?.layout?.loginPage.isPicture &&
+    dynamicLayout?.layout?.loginPage.alignmentToTheLeft
+  const isPictureRightAligned =
+    dynamicLayout?.layout?.loginPage.isPicture &&
+    !dynamicLayout?.layout?.loginPage.alignmentToTheLeft
+  const picLink =
+    dynamicLayout?.layout?.loginPage.isPicture &&
+    dynamicLayout?.layout?.loginPage.picLink
+  const logoLink = dynamicLayout?.layout?.loginPage.logoLink
 
   const defaultValues: DefaultValues<ILoginInput> = {
     email: '',
@@ -114,11 +124,16 @@ const Login = () => {
     <Grid container component="main" sx={gridContainerStyle}>
       <CssBaseline />
       {isPictureLeftAligned && (
-        <Grid item xs={false} md={6} sx={gridPictureStyle} />
+        <Grid
+          item
+          xs={false}
+          md={6}
+          sx={{ ...gridPictureStyle, backgroundImage: picLink || '' }}
+        />
       )}
       <Grid item xs={12} md={6} component={Paper} elevation={0} square>
         <Box sx={boxContainerStyle}>
-          <Box sx={logoStyle} />
+          <Box sx={{ ...logoStyle, backgroundImage: logoLink || '' }} />
           <Typography component="h1" variant="h2" sx={loginStyle}>
             {t('logIn')}
           </Typography>
@@ -205,11 +220,14 @@ const Login = () => {
               {t('logIn')}
             </Button>
 
-            <Grid container>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {t('dontHaveAccount')}
-                </Link>
+            <Grid container spacing={0.5} justifyContent="center">
+              <Grid key={1} item>
+                <Typography variant="body2">{t('dontHaveAccount')}</Typography>
+              </Grid>
+              <Grid key={1} item>
+                <Typography variant="body2">
+                  <Link href="#">{t('signUp')}</Link>
+                </Typography>
               </Grid>
             </Grid>
 
