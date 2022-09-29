@@ -14,8 +14,15 @@ export const mockConfig = {
     },
   },
   layout: {
-    loginPage: 'imageToTheLeft',
-    mainPage: 'layout3',
+    loginPage: {
+      isPicture: true,
+      picLink: 'url(https://source.unsplash.com/random)',
+      alignmentToTheLeft: true,
+      logoLink: 'url(https://picsum.photos/320/180)',
+    },
+    catalog: {
+      iMenu: true,
+    },
   },
   extraFunctionality: {
     news: false,
@@ -55,6 +62,6 @@ export const mockConfig = {
     //   "dontHaveAccount": "ываыва ываыва а аываыва?",
     //   "signUp": "ываыва ыва ыв ",
     //   "companyInfo": "© ываываы",
-    // }
+    // },
   },
 }
