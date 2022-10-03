@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { mockConfig } from 'mocks'
+
 const { REACT_APP_API_URL } = process.env
 export const API_URL = `https://${REACT_APP_API_URL}`
 
@@ -15,7 +17,10 @@ export const fetchApi = (url: string, params: FetchParams = {}) =>
   client.get(`${API_URL}/${url}`, { params }).then((res) => res.data)
 
 const defaultFetch = (url: string) =>
-  axios.get(`${API_URL}/${url}`).then((res) => res.data)
+  // axios.get(`${API_URL}/${url}`).then((res) => res.data)
+  new Promise((resolve) => {
+    setTimeout(() => resolve(mockConfig), 2000)
+  })
 
 export default defaultFetch
 
