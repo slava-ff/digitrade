@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import { themeSelector } from 'app/themeSlice'
-import { Children } from 'utils/interfaces'
+import { themeSelector } from 'core/themeSlice'
+import { Children } from 'interfaces'
 import theme from 'theme/theme'
 
 const DynamicThemeProvider: React.FC<Children> = ({ children }) => {

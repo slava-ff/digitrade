@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import themeReducer from './themeSlice'
-import i18nReducer from './i18nSlice'
-import layoutReducer from './layoutSlice'
+
+import themeReducer from './core/themeSlice'
+import i18nReducer from './core/i18nSlice'
+import layoutReducer from './core/layoutSlice'
 
 const store = configureStore({
   reducer: {

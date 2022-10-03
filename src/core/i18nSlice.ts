@@ -1,18 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
-import { useAppSelector } from 'app/hooks'
+import type { RootState } from '../store'
+import { useAppSelector } from 'hooks/reduxToolKitHooks'
 
 interface I18nSlice {
   i18n: {
     language: string
     isRtl: boolean
     translations: { [key: string]: string }
-  } | null
+  }
 }
 
 const initialState: I18nSlice = {
-  i18n: null,
+  i18n: {
+    language: 'he',
+    isRtl: true,
+    translations: {},
+  },
 }
 
 export const i18nSlice = createSlice({

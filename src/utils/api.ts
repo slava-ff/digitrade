@@ -1,5 +1,7 @@
 import axios from 'axios'
-import { API_URL } from 'utils/constants'
+
+const { REACT_APP_API_URL } = process.env
+export const API_URL = `https://${REACT_APP_API_URL}`
 
 export type FetchParams = {
   body?: string

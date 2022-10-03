@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { useTranslation } from 'i18n/i18n'
+import { useTranslation } from 'hooks/i18n'
 import { mockConfig } from 'mocks'
-import { useAppDispatch } from 'app/hooks'
+import { useAppDispatch } from 'hooks/reduxToolKitHooks'
 // import { dispatchTheme } from "app/themeSlice"
-import { setTheme } from 'app/themeSlice'
-import { setI18n } from 'app/i18nSlice'
-import { setLayout } from 'app/layoutSlice'
+import { setTheme } from 'core/themeSlice'
+import { setI18n } from 'core/i18nSlice'
+import { setLayout } from 'core/layoutSlice'
 
 const InitialRoute = () => {
   const { t } = useTranslation()
@@ -22,7 +22,7 @@ const InitialRoute = () => {
     config.layout && dispatch(setLayout(config.layout))
   }, [mockConfig])
 
-  if (false) return <div>{t('loading')}...</div>
+  if (!mockConfig) return <div>{t('loading')}...</div>
 
   return <Outlet />
 }

@@ -2,7 +2,8 @@
 // import { initReactI18next } from "react-i18next"
 // import LanguageDetector from 'i18next-browser-languagedetector';
 
-import { i18nSelector } from 'app/i18nSlice'
+import { useEffect } from 'react'
+import { i18nSelector } from 'core/i18nSlice'
 
 // const resources = {
 //   language: {},
@@ -53,18 +54,22 @@ type Localization = {
   companyInfo: string
 }
 
-// const locale:Localization = {
-//   loginPageFormLabel: "Войти"
-// }
-
 export const useTranslation = () => {
   const fetchedI18n = i18nSelector()
 
-  const t = (key: keyof Localization) => fetchedI18n?.i18n?.translations[key]
-
-  const i18n = {
-    dir: () => (fetchedI18n?.i18n?.isRtl ? 'rtl' : 'ltr'),
+  // TO-DO: remove and fix errors
+  let t = (key: keyof Localization) => fetchedI18n.i18n.translations[key] || ''
+  let i18n = {
+    dir: () => (fetchedI18n.i18n.isRtl ? 'rtl' : 'ltr'),
   }
+
+  useEffect(() => {
+    t = (key: keyof Localization) => fetchedI18n.i18n.translations[key] || ''
+
+    i18n = {
+      dir: () => (fetchedI18n.i18n.isRtl ? 'rtl' : 'ltr'),
+    }
+  }, [fetchedI18n])
 
   return { t, i18n }
 }
