@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from 'store'
-import { useAppSelector } from 'hooks/reduxToolkitHooks'
 
 interface LayoutSlice {
   layout: {
@@ -38,7 +37,6 @@ export const layoutSlice = createSlice({
 
 export const { setLayout } = layoutSlice.actions
 
-export const layoutSelector = () =>
-  useAppSelector((state: RootState) => state.layout)
+export const layoutSelector = (state: RootState) => state.layout
 
 export default layoutSlice.reducer

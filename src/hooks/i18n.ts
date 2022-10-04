@@ -4,6 +4,7 @@
 
 import { useEffect } from 'react'
 import { i18nSelector } from 'slices/i18nSlice'
+import { useAppSelector } from 'hooks/reduxToolkitHooks'
 
 // const resources = {
 //   language: {},
@@ -55,7 +56,7 @@ type Localization = {
 }
 
 export const useTranslation = () => {
-  const fetchedI18n = i18nSelector()
+  const fetchedI18n = useAppSelector(i18nSelector)
 
   // TO-DO: remove and fix errors
   let t = (key: keyof Localization) => fetchedI18n.i18n.translations[key] || ''

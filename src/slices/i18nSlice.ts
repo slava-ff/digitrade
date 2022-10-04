@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
-import { useAppSelector } from 'hooks/reduxToolkitHooks'
 
 interface I18nSlice {
   i18n: {
@@ -32,7 +31,6 @@ export const i18nSlice = createSlice({
 
 export const { setI18n } = i18nSlice.actions
 
-export const i18nSelector = () =>
-  useAppSelector((state: RootState) => state.i18n)
+export const i18nSelector = (state: RootState) => state.i18n
 
 export default i18nSlice.reducer

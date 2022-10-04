@@ -13,6 +13,7 @@ import {
 import { ILoginInput } from 'interfaces'
 import { EmailController, PasswordController } from 'components'
 import { layoutSelector } from 'slices'
+import { useAppSelector } from 'hooks/reduxToolkitHooks'
 import { useTranslation } from 'hooks/i18n'
 import styles from './LoginPage.styles'
 
@@ -33,7 +34,7 @@ const Copyright = (props: any) => {
 
 const Login = () => {
   const { t } = useTranslation()
-  const fetchedLayout = layoutSelector()
+  const fetchedLayout = useAppSelector(layoutSelector)
   const [dynamicLayout, setDynamicLayout] = useState(fetchedLayout)
 
   useEffect(() => {
