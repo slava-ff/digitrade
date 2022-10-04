@@ -132,10 +132,10 @@ const Login = () => {
             </Button>
 
             <Grid container spacing={0.5} justifyContent="center">
-              <Grid key={1} item>
+              <Grid key={'dontHaveAccount'} item>
                 <Typography variant="body2">{t('dontHaveAccount')}</Typography>
               </Grid>
-              <Grid key={1} item>
+              <Grid key={'signUp'} item>
                 <Typography variant="body2">
                   <Link href="#">{t('signUp')}</Link>
                 </Typography>
