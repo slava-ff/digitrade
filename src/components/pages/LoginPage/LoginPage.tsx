@@ -12,7 +12,7 @@ import {
 
 import { ILoginInput } from 'interfaces'
 import { EmailController, PasswordController } from 'components'
-import { layoutSelector } from 'core/layoutSlice'
+import { layoutSelector } from 'slices'
 import { useTranslation } from 'hooks/i18n'
 import styles from './LoginPage.styles'
 

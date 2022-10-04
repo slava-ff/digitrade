@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { useTranslation } from 'hooks/i18n'
-import { useAppDispatch } from 'hooks/reduxToolKitHooks'
-import { setTheme } from 'core/themeSlice'
-import { setI18n } from 'core/i18nSlice'
-import { setLayout } from 'core/layoutSlice'
+import { useAppDispatch } from 'store'
+import { setTheme, setI18n, setLayout } from 'slices'
 import defaultFetch from 'utils/api'
+import { Loading } from 'components'
 
 const InitialRoute = () => {
   const { t } = useTranslation()
@@ -30,7 +29,7 @@ const InitialRoute = () => {
     }
   }, [config])
 
-  if (!config) return <div>{t('loading')}...</div>
+  if (!config) return <Loading />
 
   return <Outlet />
 }

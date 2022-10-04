@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
-import { useAppSelector } from 'hooks/reduxToolKitHooks'
+import { useAppSelector } from 'store'
 
 interface I18nSlice {
   i18n: {

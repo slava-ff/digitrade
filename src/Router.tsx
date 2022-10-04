@@ -6,7 +6,7 @@ import { InitialRoute, PrivateRoute } from 'components'
 import Login from 'components/pages/LoginPage/LoginPage'
 import { useTranslation } from 'hooks/i18n'
 
-import DynamicThemeProvider from 'components/DynamicThemeProvider'
+import DynamicThemeProvider from 'components/providers/DynamicThemeProvider'
 
 // TO-DO: path="/" OR path=""
 export const ROUTES = {

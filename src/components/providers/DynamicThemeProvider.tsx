@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import { themeSelector } from 'core/themeSlice'
+import { themeSelector } from 'slices'
 import { Children } from 'interfaces'
 import theme from 'theme/theme'
 
@@ -10,7 +10,7 @@ const DynamicThemeProvider: React.FC<Children> = ({ children }) => {
   const fetchedTheme = themeSelector()
 
   useEffect(() => {
-    if (fetchedTheme) {
+    if (fetchedTheme.theme) {
       const newTheme = createTheme(theme, {
         palette: {
           primary: {

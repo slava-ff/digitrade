@@ -3,7 +3,7 @@
 // import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { useEffect } from 'react'
-import { i18nSelector } from 'core/i18nSlice'
+import { i18nSelector } from 'slices/i18nSlice'
 
 // const resources = {
 //   language: {},
