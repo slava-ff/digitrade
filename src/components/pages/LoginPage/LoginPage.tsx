@@ -32,6 +32,11 @@ const Copyright = (props: any) => {
   )
 }
 
+const defaultValues: DefaultValues<ILoginInput> = {
+  email: '',
+  password: '',
+}
+
 const Login = () => {
   const { t } = useTranslation()
   const fetchedLayout = useAppSelector(layoutSelector)
@@ -53,11 +58,6 @@ const Login = () => {
     dynamicLayout?.layout?.loginPage.isPicture &&
     dynamicLayout?.layout?.loginPage.picLink
   const logoLink = dynamicLayout?.layout?.loginPage.logoLink
-
-  const defaultValues: DefaultValues<ILoginInput> = {
-    email: '',
-    password: '',
-  }
 
   const {
     handleSubmit,
