@@ -1,4 +1,4 @@
-export { default as EmailController } from 'components/atoms/EmailController'
+export { default as EmailController } from 'components/molecules/EmailController'
 export { default as PasswordController } from 'components/atoms/PasswordController'
 export { default as InitialRoute } from 'components/routes/InitialRoute'
 export { default as PrivateRoute } from 'components/routes/PrivateRoute'

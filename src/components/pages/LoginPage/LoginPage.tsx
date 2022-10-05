@@ -1,36 +1,30 @@
 import { useEffect, useState } from 'react'
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form'
-import {
-  Button,
-  CssBaseline,
-  Link,
-  Grid,
-  Box,
-  Typography,
-  Paper,
-} from '@mui/material'
+import { Button, Link, Grid, Box, Typography, Paper } from '@mui/material'
 
 import { ILoginInput } from 'interfaces'
 import { EmailController, PasswordController } from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
 import { useTranslation } from 'hooks/i18n'
+import CompanyInfo from 'components/atoms/CompanyInfo'
 import styles from './LoginPage.styles'
 
-const Copyright = (props: any) => {
-  const { t } = useTranslation()
-
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {t('companyInfo')}
-    </Typography>
-  )
-}
+const SidePicture = ({
+  imgLink = '',
+  isShow = false,
+}: {
+  imgLink: string
+  isShow: boolean
+}) =>
+  isShow ? (
+    <Grid
+      item
+      xs={false}
+      md={6}
+      sx={{ ...styles.grid_picture, backgroundImage: imgLink || '' }}
+    />
+  ) : null
 
 const defaultValues: DefaultValues<ILoginInput> = {
   email: '',
@@ -74,15 +68,8 @@ const Login = () => {
 
   return (
     <Grid container component="main" sx={styles.grid_container}>
-      <CssBaseline />
-      {isPictureLeftAligned && (
-        <Grid
-          item
-          xs={false}
-          md={6}
-          sx={{ ...styles.grid_picture, backgroundImage: picLink || '' }}
-        />
-      )}
+      <SidePicture imgLink={picLink || ''} isShow={isPictureLeftAligned} />
+
       <Grid item xs={12} md={6} component={Paper} elevation={0} square>
         <Box sx={styles.box_container}>
           <Box sx={{ ...styles.logo, backgroundImage: logoLink || '' }} />
@@ -142,14 +129,13 @@ const Login = () => {
                 </Typography>
               </Grid>
             </Grid>
-
-            <Copyright sx={styles.copyright} />
           </Box>
+
+          <CompanyInfo sx={styles.copyright} />
         </Box>
       </Grid>
-      {isPictureRightAligned && (
-        <Grid item xs={false} md={6} sx={styles.grid_picture} />
-      )}
+
+      <SidePicture imgLink={picLink || ''} isShow={isPictureRightAligned} />
     </Grid>
   )
 }

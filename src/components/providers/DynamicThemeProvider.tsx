@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
 
 import { themeSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
@@ -27,7 +28,12 @@ const DynamicThemeProvider: React.FC<Children> = ({ children }) => {
     }
   }, [fetchedTheme])
 
-  return <ThemeProvider theme={dynamicTheme}>{children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={dynamicTheme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  )
 }
 
 export default DynamicThemeProvider
