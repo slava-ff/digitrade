@@ -5,8 +5,8 @@ import type { RootState } from 'store'
 interface LayoutSlice {
   layout: {
     loginPage: {
-      isSidePicture: boolean
-      sidePictureLink: string
+      isSideImage: boolean
+      sideImageLink: string
       alignmentToTheLeft: boolean
       logoLink: string
     }
@@ -16,8 +16,8 @@ interface LayoutSlice {
 const initialState: LayoutSlice = {
   layout: {
     loginPage: {
-      isSidePicture: false,
-      sidePictureLink: '',
+      isSideImage: false,
+      sideImageLink: '',
       alignmentToTheLeft: false,
       logoLink: '',
     },

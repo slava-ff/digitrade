@@ -1,11 +1,12 @@
 // atoms
-export { default as Loading } from 'components/atoms/Loading'
-export { default as CompanyInfo } from 'components/atoms/CompanyInfo'
 
 // molecules
+export { default as Loading } from 'components/molecules/Loading'
+export { default as CompanyInfo } from 'components/molecules/CompanyInfo'
 export { default as EmailController } from 'components/molecules/EmailController'
 export { default as PasswordController } from 'components/molecules/PasswordController'
-export { default as SidePicture } from 'components/molecules/SidePicture'
+export { default as SideImage } from 'components/molecules/SideImage'
+export { default as LogoImage } from 'components/molecules/LogoImage'
 
 // organisms
 

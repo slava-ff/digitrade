@@ -1,7 +1,7 @@
 import { Grid, SxProps } from '@mui/material'
 import { ICustomTheme } from 'interfaces'
 
-type SidePicture = {
+type SideImage = {
   sx?: SxProps<ICustomTheme> | undefined
   imgLink: string
   isShow: boolean
@@ -15,7 +15,7 @@ const styles = {
   backgroundPosition: 'center',
 }
 
-const SidePicture = ({ imgLink = '', isShow = false, sx }: SidePicture) =>
+const SideImage = ({ imgLink = '', isShow = false, sx }: SideImage) =>
   isShow ? (
     <Grid
       item
@@ -25,4 +25,4 @@ const SidePicture = ({ imgLink = '', isShow = false, sx }: SidePicture) =>
     />
   ) : null
 
-export default SidePicture
+export default SideImage

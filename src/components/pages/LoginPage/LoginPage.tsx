@@ -7,7 +7,8 @@ import {
   EmailController,
   PasswordController,
   CompanyInfo,
-  SidePicture,
+  SideImage,
+  LogoImage,
 } from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
@@ -30,15 +31,15 @@ const Login = () => {
     }
   }, [fetchedLayout])
 
-  const isPictureLeftAligned =
-    dynamicLayout?.layout?.loginPage.isSidePicture &&
+  const isImageLeftAligned =
+    dynamicLayout?.layout?.loginPage.isSideImage &&
     dynamicLayout?.layout?.loginPage.alignmentToTheLeft
-  const isPictureRightAligned =
-    dynamicLayout?.layout?.loginPage.isSidePicture &&
+  const isImageRightAligned =
+    dynamicLayout?.layout?.loginPage.isSideImage &&
     !dynamicLayout?.layout?.loginPage.alignmentToTheLeft
-  const sidePictureLink =
-    dynamicLayout?.layout?.loginPage.isSidePicture &&
-    dynamicLayout?.layout?.loginPage.sidePictureLink
+  const sideImageLink =
+    dynamicLayout?.layout?.loginPage.isSideImage &&
+    dynamicLayout?.layout?.loginPage.sideImageLink
   const logoLink = dynamicLayout?.layout?.loginPage.logoLink
 
   const {
@@ -56,14 +57,12 @@ const Login = () => {
 
   return (
     <Grid container component="main" sx={styles.grid_container}>
-      <SidePicture
-        imgLink={sidePictureLink || ''}
-        isShow={isPictureLeftAligned}
-      />
+      <SideImage imgLink={sideImageLink || ''} isShow={isImageLeftAligned} />
 
       <Grid item xs={12} md={6} component={Paper} elevation={0} square>
         <Box sx={styles.box_container}>
-          <Box sx={{ ...styles.logo, backgroundImage: logoLink || '' }} />
+          <LogoImage imgLink={logoLink} />
+
           <Typography component="h1" variant="h2" sx={styles.login}>
             {t('logIn')}
           </Typography>
@@ -126,10 +125,7 @@ const Login = () => {
         </Box>
       </Grid>
 
-      <SidePicture
-        imgLink={sidePictureLink || ''}
-        isShow={isPictureRightAligned}
-      />
+      <SideImage imgLink={sideImageLink || ''} isShow={isImageRightAligned} />
     </Grid>
   )
 }

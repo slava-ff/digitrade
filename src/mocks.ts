@@ -15,8 +15,8 @@ export const mockConfig = {
   },
   layout: {
     loginPage: {
-      isSidePicture: true,
-      sidePictureLink: 'url(https://source.unsplash.com/random)',
+      isSideImage: true,
+      sideImageLink: 'url(https://source.unsplash.com/random)',
       alignmentToTheLeft: true,
       logoLink: 'url(https://picsum.photos/320/180)',
     },
