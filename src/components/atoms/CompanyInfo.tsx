@@ -1,8 +1,13 @@
-import { Typography } from '@mui/material'
+import { SxProps, Typography } from '@mui/material'
+import { ICustomTheme } from 'interfaces'
 
 import { useTranslation } from 'hooks/i18n'
 
-const CompanyInfo = (props: any) => {
+type Styles = {
+  sx?: SxProps<ICustomTheme> | undefined
+}
+
+const CompanyInfo = ({ sx }: Styles) => {
   const { t } = useTranslation()
 
   return (
@@ -10,7 +15,7 @@ const CompanyInfo = (props: any) => {
       variant="body2"
       color="text.secondary"
       align="center"
-      {...props}
+      sx={{ ...sx }}
     >
       {t('companyInfo')}
     </Typography>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useTranslation } from 'hooks/i18n'
 

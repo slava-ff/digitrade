@@ -3,28 +3,16 @@ import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form'
 import { Button, Link, Grid, Box, Typography, Paper } from '@mui/material'
 
 import { ILoginInput } from 'interfaces'
-import { EmailController, PasswordController } from 'components'
+import {
+  EmailController,
+  PasswordController,
+  CompanyInfo,
+  SidePicture,
+} from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
 import { useTranslation } from 'hooks/i18n'
-import CompanyInfo from 'components/atoms/CompanyInfo'
 import styles from './LoginPage.styles'
-
-const SidePicture = ({
-  imgLink = '',
-  isShow = false,
-}: {
-  imgLink: string
-  isShow: boolean
-}) =>
-  isShow ? (
-    <Grid
-      item
-      xs={false}
-      md={6}
-      sx={{ ...styles.grid_picture, backgroundImage: imgLink || '' }}
-    />
-  ) : null
 
 const defaultValues: DefaultValues<ILoginInput> = {
   email: '',
@@ -43,14 +31,14 @@ const Login = () => {
   }, [fetchedLayout])
 
   const isPictureLeftAligned =
-    dynamicLayout?.layout?.loginPage.isPicture &&
+    dynamicLayout?.layout?.loginPage.isSidePicture &&
     dynamicLayout?.layout?.loginPage.alignmentToTheLeft
   const isPictureRightAligned =
-    dynamicLayout?.layout?.loginPage.isPicture &&
+    dynamicLayout?.layout?.loginPage.isSidePicture &&
     !dynamicLayout?.layout?.loginPage.alignmentToTheLeft
-  const picLink =
-    dynamicLayout?.layout?.loginPage.isPicture &&
-    dynamicLayout?.layout?.loginPage.picLink
+  const sidePictureLink =
+    dynamicLayout?.layout?.loginPage.isSidePicture &&
+    dynamicLayout?.layout?.loginPage.sidePictureLink
   const logoLink = dynamicLayout?.layout?.loginPage.logoLink
 
   const {
@@ -68,7 +56,10 @@ const Login = () => {
 
   return (
     <Grid container component="main" sx={styles.grid_container}>
-      <SidePicture imgLink={picLink || ''} isShow={isPictureLeftAligned} />
+      <SidePicture
+        imgLink={sidePictureLink || ''}
+        isShow={isPictureLeftAligned}
+      />
 
       <Grid item xs={12} md={6} component={Paper} elevation={0} square>
         <Box sx={styles.box_container}>
@@ -135,7 +126,10 @@ const Login = () => {
         </Box>
       </Grid>
 
-      <SidePicture imgLink={picLink || ''} isShow={isPictureRightAligned} />
+      <SidePicture
+        imgLink={sidePictureLink || ''}
+        isShow={isPictureRightAligned}
+      />
     </Grid>
   )
 }

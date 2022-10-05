@@ -2,11 +2,13 @@
 // import { useTranslation } from 'react-i18next'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { InitialRoute, PrivateRoute } from 'components'
-import Login from 'components/pages/LoginPage/LoginPage'
+import {
+  InitialRoute,
+  PrivateRoute,
+  DynamicThemeProvider,
+  LoginPage,
+} from 'components'
 import { useTranslation } from 'hooks/i18n'
-
-import DynamicThemeProvider from 'components/providers/DynamicThemeProvider'
 
 // TO-DO: path="/" OR path=""
 export const ROUTES = {
@@ -27,7 +29,7 @@ function Router() {
             <Route path={ROUTES.PRIVATE_ROUTE} element={<PrivateRoute />}>
               {/* <Route index element={<MainPage />} /> */}
             </Route>
-            <Route path={ROUTES.LOGIN} element={<Login />} />
+            <Route path={ROUTES.LOGIN} element={<LoginPage />} />
             {/* <Route path="signup" element={<SignUp />} /> */}
           </Route>
         </Routes>
