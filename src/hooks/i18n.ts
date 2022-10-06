@@ -52,6 +52,7 @@ type Localization = {
   forgotPassword: string
   dontHaveAccount: string
   signUp: string
+  signUpDescription: string
   companyInfo: string
 }
 

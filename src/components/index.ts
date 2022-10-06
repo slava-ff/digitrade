@@ -12,12 +12,14 @@ export { default as AuthDescription } from 'components/molecules/AuthDescription
 
 // organisms
 export { default as LoginForm } from 'components/organisms/LoginForm'
+export { default as SignUpForm } from 'components/organisms/SignUpForm'
 
 // templates
 export { default as AuthTemplate } from 'components/templates/AuthTemplate'
 
 // pages
 export { default as LoginPage } from 'components/pages/LoginPage'
+export { default as SignUpPage } from 'components/pages/SignUpPage'
 
 // providers
 export { default as DynamicThemeProvider } from 'components/providers/DynamicThemeProvider'

@@ -7,6 +7,7 @@ import {
   PrivateRoute,
   DynamicThemeProvider,
   LoginPage,
+  SignUpPage,
 } from 'components'
 import { useTranslation } from 'hooks/i18n'
 
@@ -15,6 +16,7 @@ export const ROUTES = {
   INITIAL_ROUTE: '/',
   PRIVATE_ROUTE: '',
   LOGIN: 'login',
+  SIGN_UP: 'signup',
 }
 
 function Router() {
@@ -30,7 +32,7 @@ function Router() {
               {/* <Route index element={<MainPage />} /> */}
             </Route>
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
-            {/* <Route path="signup" element={<SignUp />} /> */}
+            <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

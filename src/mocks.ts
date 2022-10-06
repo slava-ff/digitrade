@@ -46,6 +46,7 @@ export const mockConfig = {
       forgotPassword: 'Forgot Password',
       dontHaveAccount: 'Don’t have an account?',
       signUp: 'Sign Up',
+      signUpDescription: 'Please fill your detail to create account.',
       companyInfo: '© COMPANY INFO',
     },
     // translations: {

@@ -9,14 +9,14 @@ const styles = {
   signUpLink: { mt: 1.5, justifyContent: 'center' },
 }
 
-type LoginForm = {
+type SignUpForm = {
   control: Control<ILoginInput>
   handleSubmit: UseFormHandleSubmit<ILoginInput>
   onSubmit: SubmitHandler<ILoginInput>
   sx?: SxProps<ICustomTheme> | undefined
 }
 
-const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
+const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
   const { t } = useTranslation()
   return (
     <Box
@@ -68,4 +68,4 @@ const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
   )
 }
 
-export default LoginForm
+export default SignUpForm
