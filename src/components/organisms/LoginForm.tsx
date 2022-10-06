@@ -5,7 +5,8 @@ import { EmailController, PasswordController } from 'components'
 import { useTranslation } from 'hooks/i18n'
 
 const styles = {
-  submitBtn: { mt: 3, mb: 2 },
+  submitBtn: { mt: 3 },
+  signUpLink: { mt: 1.5, justifyContent: 'center' },
 }
 
 type LoginForm = {
@@ -53,7 +54,7 @@ const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
         {t('logIn')}
       </Button>
 
-      <Grid container spacing={0.5} justifyContent="center">
+      <Grid container spacing={0.5} sx={styles.signUpLink}>
         <Grid key={'dontHaveAccount'} item>
           <Typography variant="body2">{t('dontHaveAccount')}</Typography>
         </Grid>

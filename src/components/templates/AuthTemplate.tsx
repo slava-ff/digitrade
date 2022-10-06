@@ -11,17 +11,17 @@ import {
 const styles = {
   grid_container: { height: '100vh', justifyContent: 'center' },
   box_container: {
-    mt: 4,
-    mb: 1.5,
+    pt: 4,
     mx: 'auto',
     px: 1,
     maxWidth: 'calc(360px + 1rem)',
+    minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
   },
-  authDescription: { mt: 1 },
+  authDescription: { mt: 4 },
   box_form: { mt: 1 },
-  copyright: { mt: 4 },
+  copyright: { mt: 'auto', pt: '2rem' },
 }
 
 type AuthTemplate = {
