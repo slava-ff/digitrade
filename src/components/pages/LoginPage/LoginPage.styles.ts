@@ -8,18 +8,14 @@ const box_container = {
   display: 'flex',
   flexDirection: 'column',
 }
-const login = { mt: 1 }
-const login_description = { fontWeight: 500 }
+const authDescription = { mt: 1 }
 const box_form = { mt: 1 }
-const submit = { mt: 3, mb: 2 }
 const copyright = { mt: 4 }
 
 export default {
   grid_container,
   box_container,
-  login,
-  login_description,
+  authDescription,
   box_form,
-  submit,
   copyright,
 }

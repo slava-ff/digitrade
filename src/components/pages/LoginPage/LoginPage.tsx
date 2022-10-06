@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form'
-import { Button, Link, Grid, Box, Typography, Paper } from '@mui/material'
+import { Grid, Box, Paper } from '@mui/material'
 
 import { ILoginInput } from 'interfaces'
 import {
-  EmailController,
-  PasswordController,
   CompanyInfo,
   SideImage,
   LogoImage,
+  LoginForm,
+  AuthDescription,
 } from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
@@ -20,7 +20,7 @@ const defaultValues: DefaultValues<ILoginInput> = {
   password: '',
 }
 
-const Login = () => {
+const LoginPage = () => {
   const { t } = useTranslation()
   const fetchedLayout = useAppSelector(layoutSelector)
   const [dynamicLayout, setDynamicLayout] = useState(fetchedLayout)
@@ -63,63 +63,18 @@ const Login = () => {
         <Box sx={styles.box_container}>
           <LogoImage imgLink={logoLink} />
 
-          <Typography component="h1" variant="h2" sx={styles.login}>
-            {t('logIn')}
-          </Typography>
-          <Typography variant="body1" sx={styles.login_description}>
-            {t('loginDescription')}
-          </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit(onSubmit)}
+          <AuthDescription
+            headerText={t('logIn')}
+            descriptionText={t('loginDescription')}
+            sx={styles.authDescription}
+          />
+
+          <LoginForm
+            control={control}
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
             sx={styles.box_form}
-          >
-            <EmailController
-              label={t('emailAddress')}
-              placeholder={t('emailPlaceholder')}
-              validationText={t('emailValidation')}
-              control={control}
-              required={true}
-            />
-
-            <PasswordController
-              label={t('password')}
-              placeholder={t('passwordPlaceholder')}
-              validationText={t('passwordValidation')}
-              control={control}
-              required={true}
-            />
-
-            <Grid container>
-              <Grid item xs />
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {t('forgotPassword')}
-                </Link>
-              </Grid>
-            </Grid>
-
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={styles.submit}
-            >
-              {t('logIn')}
-            </Button>
-
-            <Grid container spacing={0.5} justifyContent="center">
-              <Grid key={'dontHaveAccount'} item>
-                <Typography variant="body2">{t('dontHaveAccount')}</Typography>
-              </Grid>
-              <Grid key={'signUp'} item>
-                <Typography variant="body2">
-                  <Link href="#">{t('signUp')}</Link>
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
+          />
 
           <CompanyInfo sx={styles.copyright} />
         </Box>
@@ -130,4 +85,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

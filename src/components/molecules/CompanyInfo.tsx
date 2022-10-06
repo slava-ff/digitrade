@@ -3,11 +3,11 @@ import { ICustomTheme } from 'interfaces'
 
 import { useTranslation } from 'hooks/i18n'
 
-type Styles = {
+type CompanyInfo = {
   sx?: SxProps<ICustomTheme> | undefined
 }
 
-const CompanyInfo = ({ sx }: Styles) => {
+const CompanyInfo = ({ sx }: CompanyInfo) => {
   const { t } = useTranslation()
 
   return (
