@@ -1,4 +1,5 @@
 // atoms
+export { default as Form } from 'components/atoms/Form'
 
 // molecules
 export { default as Loading } from 'components/molecules/Loading'

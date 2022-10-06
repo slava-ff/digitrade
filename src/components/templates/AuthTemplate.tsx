@@ -1,6 +1,12 @@
 import { Grid, Box, Paper } from '@mui/material'
 
-import { CompanyInfo, SideImage, LogoImage, AuthDescription } from 'components'
+import {
+  CompanyInfo,
+  SideImage,
+  LogoImage,
+  AuthDescription,
+  Form,
+} from 'components'
 
 const styles = {
   grid_container: { height: '100vh', justifyContent: 'center' },
@@ -52,7 +58,7 @@ const AuthTemplate = ({
             sx={styles.authDescription}
           />
 
-          <Box sx={styles.box_form}>{form}</Box>
+          <Form form={form} sx={styles.box_form} />
 
           <CompanyInfo sx={styles.copyright} />
         </Box>
