@@ -8,12 +8,14 @@
   "emailValidation": "Please enter a valid email address",
   "password": "Password",
   "passwordPlaceholder": "Enter your password",
-  "passwordConfirmPlaceholder": "Confirm password",
+  "passwordConfirm": "Confirm password",
+  "passwordConfirmPlaceholder": "Enter your password again",
   "passwordValidation": "Please enter a password",
   "rememberMe": "Remember me",
   "forgotPassword": "Forgot Password",
   "dontHaveAccount": "Don’t have an account?",
   "signUp": "Sign Up",
   "signUpDescription": "Please fill your detail to create account.",
+  "alreadyAMember": "Already a member?",
   "companyInfo": "© COMPANY INFO"
 }

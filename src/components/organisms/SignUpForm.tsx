@@ -1,6 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import { SubmitHandler, Control, UseFormHandleSubmit } from 'react-hook-form'
-import { Button, Link, Grid, Box, Typography, SxProps } from '@mui/material'
+import {
+  Button,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  SxProps,
+  Checkbox,
+  FormControlLabel,
+} from '@mui/material'
 
 import { ILoginInput, ICustomTheme } from 'interfaces'
 import { EmailController, PasswordController } from 'components'
@@ -9,7 +18,7 @@ import { ROUTES } from 'utils/constants'
 const styles = {
   submitBtn: { mt: 3 },
   signUpDescription: { mt: 1.5, justifyContent: 'center' },
-  signUpBox: { lineHeight: '26px', marginLeft: '10px' },
+  signUpBox: { lineHeight: '26px', marginLeft: '2px' },
   signUpBtn: { padding: 0 },
 }
 
@@ -46,38 +55,31 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
       />
 
       <PasswordController
-        label={t('password')}
+        label={t('passwordConfirm')}
         placeholder={t('passwordConfirmPlaceholder')}
         validationText={t('passwordValidation')}
         control={control}
         required={true}
       />
 
-      <Grid container>
-        <Grid item xs />
-        <Grid item>
-          <Button component={Link} href={ROUTES.FORGOT_PASSWORD} variant="text">
-            {t('forgotPassword')}
-          </Button>
-        </Grid>
-      </Grid>
+      <FormControlLabel control={<Checkbox />} label="Label" />
 
       <Button type="submit" fullWidth variant="contained" sx={styles.submitBtn}>
-        {t('logIn')}
+        {t('signUp')}
       </Button>
 
       <Grid container spacing={0.5} sx={styles.signUpDescription}>
-        <Box key={'dontHaveAccount'}>
-          <Typography variant="body2">{t('dontHaveAccount')}</Typography>
+        <Box key={'alreadyAMember'}>
+          <Typography variant="body2">{t('alreadyAMember')}</Typography>
         </Box>
-        <Box key={'signUp'} sx={styles.signUpBox}>
+        <Box key={'logIn'} sx={styles.signUpBox}>
           <Button
             component={Link}
-            href={ROUTES.SIGN_UP}
+            href={ROUTES.LOGIN}
             variant="text"
             sx={styles.signUpBtn}
           >
-            {t('signUp')}
+            {t('logIn')}
           </Button>
         </Box>
       </Grid>
