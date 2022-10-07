@@ -1,10 +1,10 @@
 import { Components } from '@mui/material/styles'
 import MuiCssBaseline from 'theme/components/global'
+import MuiButton from 'theme/components/button'
 // import MuiInputLabel from 'theme/components/inputLabel'
-// import MuiButton from 'theme/components/button'
 
 export const components = {
   MuiCssBaseline,
+  ...MuiButton,
   // ...MuiInputLabel,
-  // ...MuiButton,
 } as Partial<Components>
