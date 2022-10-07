@@ -5,28 +5,6 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 
 import translationsEN from './en.json'
 
-// first setting:
-// i18n
-//   .use(initReactI18next)
-//   .use(LanguageDetector)
-//   .init({
-//     preload: ["language"],
-//     resources,
-//     lng: i18n.language,
-//     fallbackLng: "en",
-//     keySeparator: false,
-//     interpolation: {
-//       escapeValue: false,
-//     },
-//     react: {
-//       useSuspense: true,
-//     },
-//   })
-
-//   i18n.loadLanguages(locale)
-
-// export default i18n
-
 const loadPath = `http://127.0.0.1:8080/api/translations/{{lng}}/{{ns}}`
 
 const resources = {
@@ -59,14 +37,14 @@ i18n
 //   .use(LanguageDetector)
 //   .use(initReactI18next)
 //   .init({
-//     preload: ["language"],
-//     lng: i18n.language,
-//     interpolation: {
-//       escapeValue: false,
-//     },
-//     react: {
-//       useSuspense: true,
-//     },
+//     // preload: ["language"],
+//     // lng: i18n.language,
+//     // interpolation: {
+//     //   escapeValue: false,
+//     // },
+//     // react: {
+//     //   useSuspense: true,
+//     // },
 
 //     fallbackLng: "en",
 //     ns: ["default"],
