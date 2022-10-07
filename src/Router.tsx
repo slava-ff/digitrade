@@ -1,5 +1,4 @@
-// import "i18n/i18n"
-// import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import {
@@ -9,7 +8,6 @@ import {
   LoginPage,
   SignUpPage,
 } from 'components'
-import { useTranslation } from 'hooks/i18n'
 
 // TO-DO: path="/" OR path=""
 export const ROUTES = {

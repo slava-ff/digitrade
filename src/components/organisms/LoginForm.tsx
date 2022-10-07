@@ -2,7 +2,7 @@ import { SubmitHandler, Control, UseFormHandleSubmit } from 'react-hook-form'
 import { Button, Link, Grid, Box, Typography, SxProps } from '@mui/material'
 import { ILoginInput, ICustomTheme } from 'interfaces'
 import { EmailController, PasswordController } from 'components'
-import { useTranslation } from 'hooks/i18n'
+import { useTranslation } from 'react-i18next'
 
 const styles = {
   submitBtn: { mt: 3 },

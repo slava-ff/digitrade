@@ -5,7 +5,7 @@ import { ILoginInput } from 'interfaces'
 import { SignUpForm, AuthTemplate } from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
-import { useTranslation } from 'hooks/i18n'
+import { useTranslation } from 'react-i18next'
 
 const defaultValues: DefaultValues<ILoginInput> = {
   email: '',

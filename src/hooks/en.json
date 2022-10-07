@@ -1,0 +1,19 @@
+{
+  "loading": "Loading...",
+  "logIn": "Log In",
+  "loginDescription": "Please fill your detail to access your account.",
+  "email": "Email",
+  "emailAddress": "Email Address",
+  "emailPlaceholder": "Enter your email",
+  "emailValidation": "Please enter a valid email address",
+  "password": "Password",
+  "passwordPlaceholder": "Enter your password",
+  "passwordConfirmPlaceholder": "Confirm password",
+  "passwordValidation": "Please enter a password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot Password",
+  "dontHaveAccount": "Don’t have an account?",
+  "signUp": "Sign Up",
+  "signUpDescription": "Please fill your detail to create account.",
+  "companyInfo": "© COMPANY INFO"
+}

@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { useTranslation } from 'hooks/i18n'
 import { useAppDispatch } from 'hooks/reduxToolkitHooks'
 import { setTheme, setI18n, setLayout } from 'slices'
 import defaultFetch from 'utils/api'
 import { Loading } from 'components'
 
 const InitialRoute = () => {
-  const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const [config, setConfig] = useState<any>()
 

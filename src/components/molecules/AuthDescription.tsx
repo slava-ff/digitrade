@@ -1,7 +1,7 @@
 import { SxProps, Typography, Box } from '@mui/material'
 import { ICustomTheme } from 'interfaces'
 
-import { useTranslation } from 'hooks/i18n'
+import { useTranslation } from 'react-i18next'
 
 const styles = {
   description: { fontWeight: 500 },

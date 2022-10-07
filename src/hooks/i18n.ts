@@ -1,21 +1,11 @@
-// import i18n from "i18next"
-// import { initReactI18next } from "react-i18next"
-// import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import HttpBackend from 'i18next-http-backend'
+import LanguageDetector from 'i18next-browser-languagedetector'
 
-import { useEffect } from 'react'
-import { i18nSelector } from 'slices/i18nSlice'
-import { useAppSelector } from 'hooks/reduxToolkitHooks'
+import translationsEN from './en.json'
 
-// const resources = {
-//   language: {},
-//   en: {
-//     translation: EN
-//   },
-//   he: {
-//     translation: HE
-//   }
-// };
-
+// first setting:
 // i18n
 //   .use(initReactI18next)
 //   .use(LanguageDetector)
@@ -37,41 +27,54 @@ import { useAppSelector } from 'hooks/reduxToolkitHooks'
 
 // export default i18n
 
-type Localization = {
-  loading: string
-  logIn: string
-  loginDescription: string
-  email: string
-  emailAddress: string
-  emailPlaceholder: string
-  emailValidation: string
-  password: string
-  passwordPlaceholder: string
-  passwordValidation: string
-  rememberMe: string
-  forgotPassword: string
-  dontHaveAccount: string
-  signUp: string
-  signUpDescription: string
-  companyInfo: string
+const loadPath = `http://127.0.0.1:8080/api/translations/{{lng}}/{{ns}}`
+
+const resources = {
+  en: {
+    translation: translationsEN,
+  },
 }
 
-export const useTranslation = () => {
-  const fetchedI18n = useAppSelector(i18nSelector)
+// working setting:
+i18n
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .init({
+    preload: ['en'],
+    resources,
+    lng: i18n.language,
+    fallbackLng: 'en',
+    keySeparator: false,
+    interpolation: {
+      escapeValue: false,
+    },
+    react: {
+      useSuspense: true,
+    },
+  })
 
-  // TO-DO: remove and fix errors
-  let t = (key: keyof Localization) => fetchedI18n.i18n.translations[key] || ''
-  let i18n = {
-    dir: () => (fetchedI18n.i18n.isRtl ? 'rtl' : 'ltr'),
-  }
+// backend setting:
+// i18n
+//   .use(HttpBackend)
+//   .use(LanguageDetector)
+//   .use(initReactI18next)
+//   .init({
+//     preload: ["language"],
+//     lng: i18n.language,
+//     interpolation: {
+//       escapeValue: false,
+//     },
+//     react: {
+//       useSuspense: true,
+//     },
 
-  useEffect(() => {
-    t = (key: keyof Localization) => fetchedI18n.i18n.translations[key] || ''
+//     fallbackLng: "en",
+//     ns: ["default"],
+//     defaultNS: "default",
+//     supportedLngs: ["en","he"],
+//     backend: {
+//       loadPath: loadPath
+//     },
+//   })
 
-    i18n = {
-      dir: () => (fetchedI18n.i18n.isRtl ? 'rtl' : 'ltr'),
-    }
-  }, [fetchedI18n])
-
-  return { t, i18n }
-}
+export default i18n
