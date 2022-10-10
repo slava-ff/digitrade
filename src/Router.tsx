@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import {
@@ -11,9 +10,6 @@ import {
 import { ROUTES } from 'utils/constants'
 
 function Router() {
-  const { i18n } = useTranslation()
-  document.body.dir = i18n.dir()
-
   return (
     <DynamicThemeProvider>
       <BrowserRouter>

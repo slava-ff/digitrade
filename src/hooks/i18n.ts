@@ -46,7 +46,7 @@ i18n
     //   useSuspense: true,
     // },
 
-    // lng: "he", // to check rtl and "he" translations
+    // lng: "en", // choose 'en' or 'he' to check ltr/rtl and translations
     fallbackLng: 'en',
     ns: ['default'],
     defaultNS: 'default',
