@@ -5,12 +5,17 @@ import reportWebVitals from './reportWebVitals'
 import store from './store'
 import { Provider } from 'react-redux'
 import './hooks/i18n'
+import { DynamicThemeProvider, DynamicDirectionProvider } from 'components'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router />
+      <DynamicDirectionProvider>
+        <DynamicThemeProvider>
+          <Router />
+        </DynamicThemeProvider>
+      </DynamicDirectionProvider>
     </Provider>
   </React.StrictMode>
 )

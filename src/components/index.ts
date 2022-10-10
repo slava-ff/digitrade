@@ -23,6 +23,7 @@ export { default as SignUpPage } from 'components/pages/SignUpPage'
 
 // providers
 export { default as DynamicThemeProvider } from 'components/providers/DynamicThemeProvider'
+export { default as DynamicDirectionProvider } from 'components/providers/DynamicDirectionProvider'
 
 // routes
 export { default as InitialRoute } from 'components/routes/InitialRoute'
