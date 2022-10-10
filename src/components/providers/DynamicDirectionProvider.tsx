@@ -20,6 +20,7 @@ const DynamicDirectionProvider: React.FC<Children> = ({ children }) => {
 
   document.body.dir = i18n.dir()
   document.dir = i18n.dir()
+
   return (
     <CacheProvider value={i18n.dir() === 'rtl' ? cacheRtl : cacheLtr}>
       {children}
