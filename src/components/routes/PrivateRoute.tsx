@@ -11,7 +11,7 @@ const PrivateRoute = () => {
     // check token
   }, [])
 
-  if (false) return <div>{t('loading')}...</div>
+  if (false) return <div>{t('???')}...</div>
   if (false) return <Outlet />
 
   return <Navigate to="/login" />

@@ -1,8 +1,6 @@
 {
-  "loading": "Loading...",
   "logIn": "Log In",
   "loginDescription": "Please fill your detail to access your account.",
-  "email": "Email",
   "emailAddress": "Email Address",
   "emailPlaceholder": "Enter your email",
   "emailValidation": "Please enter a valid email address",
@@ -17,5 +15,5 @@
   "signUp": "Sign Up",
   "signUpDescription": "Please fill your detail to create account.",
   "alreadyAMember": "Already a member?",
-  "companyInfo": "© COMPANY INFO"
+  "EXAMPLE: © COMPANY INFO": "© COMPANY INFO"
 }

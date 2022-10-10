@@ -17,7 +17,7 @@ const CompanyInfo = ({ sx }: CompanyInfo) => {
       align="center"
       sx={{ ...sx }}
     >
-      {t('companyInfo')}
+      {t('EXAMPLE: © COMPANY INFO')}
     </Typography>
   )
 }

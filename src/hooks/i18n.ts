@@ -14,45 +14,46 @@ const resources = {
 }
 
 // working setting:
-i18n
-  .use(initReactI18next)
-  .use(LanguageDetector)
-  .init({
-    preload: ['en'],
-    resources,
-    lng: i18n.language,
-    fallbackLng: 'en',
-    keySeparator: false,
-    interpolation: {
-      escapeValue: false,
-    },
-    react: {
-      useSuspense: true,
-    },
-  })
-
-// backend setting:
 // i18n
-//   .use(HttpBackend)
-//   .use(LanguageDetector)
 //   .use(initReactI18next)
+//   .use(LanguageDetector)
 //   .init({
-//     // preload: ["language"],
-//     // lng: i18n.language,
-//     // interpolation: {
-//     //   escapeValue: false,
-//     // },
-//     // react: {
-//     //   useSuspense: true,
-//     // },
-
-//     fallbackLng: "en",
-//     ns: ["default"],
-//     defaultNS: "default",
-//     supportedLngs: ["en","he"],
-//     backend: {
-//       loadPath: loadPath
+//     preload: ['en'],
+//     resources,
+//     lng: i18n.language,
+//     fallbackLng: 'en',
+//     keySeparator: false,
+//     interpolation: {
+//       escapeValue: false,
+//     },
+//     react: {
+//       useSuspense: true,
 //     },
 //   })
+
+// backend setting:
+i18n
+  .use(HttpBackend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    // preload: ["language"],
+    // lng: i18n.language,
+    // interpolation: {
+    //   escapeValue: false,
+    // },
+    // react: {
+    //   useSuspense: true,
+    // },
+
+    // lng: "he", // to check rtl and "he" translations
+    fallbackLng: 'en',
+    ns: ['default'],
+    defaultNS: 'default',
+    supportedLngs: ['en', 'he'],
+    backend: {
+      loadPath: loadPath,
+    },
+  })
 
 export default i18n
