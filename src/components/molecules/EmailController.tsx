@@ -1,6 +1,6 @@
 import { Controller, Control } from 'react-hook-form'
-import { TextField } from '@mui/material'
 
+import { CustomTextField } from 'components'
 import { ILoginInput } from 'interfaces'
 
 type TConstants = {
@@ -36,11 +36,9 @@ const EmailController = ({
       rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
-        <TextField
+        <CustomTextField
           placeholder={placeholder}
-          margin="normal"
           required={required}
-          fullWidth
           id={CONSTANTS.ID}
           label={label}
           autoComplete={CONSTANTS.AUTO_COMPLETE}

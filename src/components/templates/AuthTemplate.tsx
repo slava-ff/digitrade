@@ -19,9 +19,9 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
-  authDescription: { mt: 4 },
+  authDescription: { mt: 3 },
   box_form: { mt: 1 },
-  copyright: { mt: 'auto', pt: '2rem' },
+  copyright: { mt: 'auto', pt: 1.5 },
 }
 
 type AuthTemplate = {
