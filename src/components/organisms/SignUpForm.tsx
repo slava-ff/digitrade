@@ -7,12 +7,11 @@ import {
   Box,
   Typography,
   SxProps,
-  Checkbox,
   FormControlLabel,
 } from '@mui/material'
 
 import { ILoginInput, ICustomTheme } from 'interfaces'
-import { EmailController, PasswordController } from 'components'
+import { EmailController, PasswordController, CustomCheckbox } from 'components'
 import { ROUTES } from 'utils/constants'
 
 const styles = {
@@ -62,7 +61,7 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
         required={true}
       />
 
-      <FormControlLabel control={<Checkbox />} label="Label" />
+      <FormControlLabel control={<CustomCheckbox />} label="Label" />
 
       <Button type="submit" fullWidth variant="contained" sx={styles.submitBtn}>
         {t('signUp')}

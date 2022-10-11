@@ -1,5 +1,6 @@
 // atoms
 export { default as Form } from 'components/atoms/Form'
+export { default as CustomCheckbox } from 'components/atoms/CustomCheckbox'
 
 // molecules
 export { default as Loading } from 'components/molecules/Loading'
