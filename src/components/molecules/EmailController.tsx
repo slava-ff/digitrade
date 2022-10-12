@@ -1,6 +1,6 @@
 import { Controller, Control } from 'react-hook-form'
+import { TextField } from '@mui/material'
 
-import { CustomTextField } from 'components'
 import { AuthForm, EmailForm } from 'interfaces'
 
 type Constants = {
@@ -34,7 +34,8 @@ const EmailController = ({
       rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
-        <CustomTextField
+        <TextField
+          fullWidth
           placeholder={placeholder}
           required={required}
           id={CONSTANTS.NAME}

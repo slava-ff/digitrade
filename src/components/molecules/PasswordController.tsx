@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Controller, Control } from 'react-hook-form'
-import { InputAdornment, IconButton } from '@mui/material'
+import { TextField, InputAdornment, IconButton } from '@mui/material'
 import { VisibilityOff, Visibility, Password } from '@mui/icons-material'
 
-import { CustomTextField } from 'components'
 import { AuthForm, PasswordForm } from 'interfaces'
 
 type Constants = {
@@ -57,7 +56,8 @@ const PasswordController = ({
       rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
-        <CustomTextField
+        <TextField
+          fullWidth
           placeholder={placeholder}
           required={required}
           type={showPassword ? CONSTANTS.TYPE_TEXT : CONSTANTS.TYPE_PASSWORD}
