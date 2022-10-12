@@ -11,6 +11,7 @@ const defaultValues: DefaultValues<AuthForm> = {
   email: '',
   password: '',
   password_confirm: '',
+  agreements: false,
 }
 
 const SignUpPage = () => {

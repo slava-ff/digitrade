@@ -34,7 +34,7 @@ const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
         placeholder={t('emailPlaceholder')}
         validationText={t('emailValidation')}
         control={control}
-        required={true}
+        required
       />
 
       <PasswordController
@@ -42,7 +42,7 @@ const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
         placeholder={t('passwordPlaceholder')}
         validationText={t('passwordValidation')}
         control={control}
-        required={true}
+        required
       />
 
       <Grid container>

@@ -18,7 +18,11 @@ export type PasswordForm = {
   password_confirm?: string
 }
 
-export type AuthForm = EmailForm & PasswordForm
+export type AgreementsForm = {
+  agreements?: boolean
+}
+
+export type AuthForm = EmailForm & PasswordForm & AgreementsForm
 
 export interface CustomTheme extends Theme {
   // status: {

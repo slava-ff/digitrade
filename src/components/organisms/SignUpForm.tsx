@@ -1,17 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import { SubmitHandler, Control, UseFormHandleSubmit } from 'react-hook-form'
-import {
-  Button,
-  Link,
-  Grid,
-  Box,
-  Typography,
-  SxProps,
-  FormControlLabel,
-} from '@mui/material'
+import { Button, Link, Grid, Box, Typography, SxProps } from '@mui/material'
 
 import { AuthForm, CustomTheme } from 'interfaces'
-import { EmailController, PasswordController, CustomCheckbox } from 'components'
+import {
+  EmailController,
+  PasswordController,
+  AgreementsController,
+  SignUpTermsText,
+} from 'components'
 import { ROUTES } from 'utils/constants'
 
 const styles = {
@@ -42,7 +39,7 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
         placeholder={t('emailPlaceholder')}
         validationText={t('emailValidation')}
         control={control}
-        required={true}
+        required
       />
 
       <PasswordController
@@ -50,19 +47,24 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
         placeholder={t('passwordPlaceholder')}
         validationText={t('passwordValidation')}
         control={control}
-        required={true}
+        required
       />
 
       <PasswordController
-        confirmPassword
         label={t('passwordConfirm')}
         placeholder={t('passwordConfirmPlaceholder')}
         validationText={t('passwordValidation')}
         control={control}
-        required={true}
+        confirmPassword
+        required
       />
 
-      <FormControlLabel control={<CustomCheckbox />} label="Label" />
+      <AgreementsController
+        label={<SignUpTermsText />}
+        control={control}
+        validationText="TO-DO: validation text"
+        required
+      />
 
       <Button type="submit" fullWidth variant="contained" sx={styles.submitBtn}>
         {t('signUp')}

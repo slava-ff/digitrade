@@ -11,6 +11,8 @@ export { default as PasswordController } from 'components/molecules/PasswordCont
 export { default as SideImage } from 'components/molecules/SideImage'
 export { default as LogoImage } from 'components/molecules/LogoImage'
 export { default as AuthDescription } from 'components/molecules/AuthDescription'
+export { default as AgreementsController } from 'components/molecules/AgreementsController'
+export { default as SignUpTermsText } from 'components/molecules/SignUpTermsText'
 
 // organisms
 export { default as LoginForm } from 'components/organisms/LoginForm'
