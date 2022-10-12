@@ -10,7 +10,7 @@ import {
   FormControlLabel,
 } from '@mui/material'
 
-import { ILoginInput, ICustomTheme } from 'interfaces'
+import { AuthForm, CustomTheme } from 'interfaces'
 import { EmailController, PasswordController, CustomCheckbox } from 'components'
 import { ROUTES } from 'utils/constants'
 
@@ -22,10 +22,10 @@ const styles = {
 }
 
 type SignUpForm = {
-  control: Control<ILoginInput>
-  handleSubmit: UseFormHandleSubmit<ILoginInput>
-  onSubmit: SubmitHandler<ILoginInput>
-  sx?: SxProps<ICustomTheme> | undefined
+  control: Control<AuthForm>
+  handleSubmit: UseFormHandleSubmit<AuthForm>
+  onSubmit: SubmitHandler<AuthForm>
+  sx?: SxProps<CustomTheme> | undefined
 }
 
 const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
@@ -54,6 +54,7 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
       />
 
       <PasswordController
+        confirmPassword
         label={t('passwordConfirm')}
         placeholder={t('passwordConfirmPlaceholder')}
         validationText={t('passwordValidation')}

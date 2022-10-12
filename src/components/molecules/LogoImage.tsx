@@ -1,8 +1,8 @@
 import { Box, SxProps } from '@mui/material'
-import { ICustomTheme } from 'interfaces'
+import { CustomTheme } from 'interfaces'
 
 type LogoImage = {
-  sx?: SxProps<ICustomTheme> | undefined
+  sx?: SxProps<CustomTheme> | undefined
   imgLink: string
 }
 

@@ -1,25 +1,23 @@
 import { Controller, Control } from 'react-hook-form'
 
 import { CustomTextField } from 'components'
-import { ILoginInput } from 'interfaces'
+import { AuthForm, EmailForm } from 'interfaces'
 
-type TConstants = {
-  NAME: keyof ILoginInput
-  ID: string
+type Constants = {
+  NAME: keyof EmailForm
   AUTO_COMPLETE: string
 }
 
-const CONSTANTS: TConstants = {
+const CONSTANTS: Constants = {
   NAME: 'email',
-  ID: 'email',
   AUTO_COMPLETE: 'email',
 }
 
-interface IEmailController {
+interface EmailController {
   label: string
   placeholder: string
   validationText: string
-  control: Control<ILoginInput>
+  control: Control<AuthForm>
   required?: boolean
 }
 
@@ -29,7 +27,7 @@ const EmailController = ({
   validationText,
   control,
   required = false,
-}: IEmailController) => {
+}: EmailController) => {
   return (
     <Controller
       name={CONSTANTS.NAME}
@@ -39,7 +37,7 @@ const EmailController = ({
         <CustomTextField
           placeholder={placeholder}
           required={required}
-          id={CONSTANTS.ID}
+          id={CONSTANTS.NAME}
           label={label}
           autoComplete={CONSTANTS.AUTO_COMPLETE}
           error={!!error}

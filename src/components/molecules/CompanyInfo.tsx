@@ -1,10 +1,10 @@
 import { SxProps, Typography } from '@mui/material'
-import { ICustomTheme } from 'interfaces'
+import { CustomTheme } from 'interfaces'
 
 import { useTranslation } from 'react-i18next'
 
 type CompanyInfo = {
-  sx?: SxProps<ICustomTheme> | undefined
+  sx?: SxProps<CustomTheme> | undefined
 }
 
 const CompanyInfo = ({ sx }: CompanyInfo) => {

@@ -1,15 +1,15 @@
 import { Grid, SxProps } from '@mui/material'
-import { ICustomTheme } from 'interfaces'
+import { CustomTheme } from 'interfaces'
 
 type SideImage = {
-  sx?: SxProps<ICustomTheme> | undefined
+  sx?: SxProps<CustomTheme> | undefined
   imgLink: string
   isShow: boolean
 }
 
 const styles = {
   backgroundRepeat: 'no-repeat',
-  backgroundColor: (t: ICustomTheme) =>
+  backgroundColor: (t: CustomTheme) =>
     t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
   backgroundSize: 'cover',
   backgroundPosition: 'center',

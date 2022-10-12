@@ -1,42 +1,44 @@
 import React, { useState } from 'react'
 import { Controller, Control } from 'react-hook-form'
 import { InputAdornment, IconButton } from '@mui/material'
-import { VisibilityOff, Visibility } from '@mui/icons-material'
+import { VisibilityOff, Visibility, Password } from '@mui/icons-material'
 
 import { CustomTextField } from 'components'
-import { ILoginInput } from 'interfaces'
+import { AuthForm, PasswordForm } from 'interfaces'
 
-type TConstants = {
-  NAME: keyof ILoginInput
-  ID: string
+type Constants = {
+  PASSWORD_NAME: keyof PasswordForm
+  PASSWORD_CONFIRM_NAME: keyof PasswordForm
   AUTO_COMPLETE: string
   TYPE_TEXT: string
   TYPE_PASSWORD: string
 }
 
-const CONSTANTS: TConstants = {
-  NAME: 'password',
-  ID: 'password',
+const CONSTANTS: Constants = {
+  PASSWORD_NAME: 'password',
+  PASSWORD_CONFIRM_NAME: 'password_confirm',
   AUTO_COMPLETE: 'current-password',
   TYPE_TEXT: 'text',
   TYPE_PASSWORD: 'password',
 }
 
-interface IPasswordController {
+interface PasswordController {
+  confirmPassword?: boolean
   label: string
   placeholder: string
   validationText: string
-  control: Control<ILoginInput>
+  control: Control<AuthForm>
   required?: boolean
 }
 
 const PasswordController = ({
+  confirmPassword = false,
   label,
   placeholder,
   validationText,
   control,
   required = false,
-}: IPasswordController) => {
+}: PasswordController) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   const handleMouseDownUpPassword = (
@@ -45,9 +47,13 @@ const PasswordController = ({
     event.preventDefault()
   }
 
+  const NAME = confirmPassword
+    ? CONSTANTS.PASSWORD_NAME
+    : CONSTANTS.PASSWORD_CONFIRM_NAME
+
   return (
     <Controller
-      name={CONSTANTS.NAME}
+      name={NAME}
       rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
@@ -55,7 +61,7 @@ const PasswordController = ({
           placeholder={placeholder}
           required={required}
           type={showPassword ? CONSTANTS.TYPE_TEXT : CONSTANTS.TYPE_PASSWORD}
-          id={CONSTANTS.ID}
+          id={NAME}
           label={label}
           autoComplete={CONSTANTS.AUTO_COMPLETE}
           error={!!error}

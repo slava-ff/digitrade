@@ -1,5 +1,5 @@
-import { ICustomTheme, ICustomThemeOptions } from '../utils/interfaces'
+import { CustomTheme, CustomThemeOptions } from '../interfaces'
 
 declare module '@mui/material/styles' {
-  export function createTheme(options?: ICustomThemeOptions): ICustomTheme
+  export function createTheme(options?: CustomThemeOptions): CustomTheme
 }

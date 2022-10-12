@@ -1,5 +1,5 @@
 import { SxProps, Typography, Box } from '@mui/material'
-import { ICustomTheme } from 'interfaces'
+import { CustomTheme } from 'interfaces'
 
 import { useTranslation } from 'react-i18next'
 
@@ -10,7 +10,7 @@ const styles = {
 type AuthDescription = {
   headerText: string
   descriptionText: string
-  sx?: SxProps<ICustomTheme> | undefined
+  sx?: SxProps<CustomTheme> | undefined
 }
 
 const AuthDescription = ({

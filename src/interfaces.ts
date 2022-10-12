@@ -4,23 +4,29 @@ export type Children = {
   children: React.ReactNode
 }
 
-export interface IToken {
+export interface Token {
   access_token: string
   refresh_token: string
 }
 
-export interface ILoginInput {
+export type EmailForm = {
   email: string
-  password: string
 }
 
-export interface ICustomTheme extends Theme {
+export type PasswordForm = {
+  password: string
+  password_confirm?: string
+}
+
+export type AuthForm = EmailForm & PasswordForm
+
+export interface CustomTheme extends Theme {
   // status: {
   //   danger: string
   // }
 }
 // allow configuration using `createTheme`
-export interface ICustomThemeOptions extends ThemeOptions {
+export interface CustomThemeOptions extends ThemeOptions {
   // status?: {
   //   danger?: string
   // }

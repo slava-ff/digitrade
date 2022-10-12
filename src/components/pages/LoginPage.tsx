@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form'
 
-import { ILoginInput } from 'interfaces'
+import { AuthForm } from 'interfaces'
 import { LoginForm, AuthTemplate } from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
 import { useTranslation } from 'react-i18next'
 
-const defaultValues: DefaultValues<ILoginInput> = {
+const defaultValues: DefaultValues<AuthForm> = {
   email: '',
   password: '',
 }
@@ -36,12 +36,12 @@ const LoginPage = () => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<ILoginInput>({
+  } = useForm<AuthForm>({
     defaultValues,
   })
 
   // TO-DO: post login data
-  const onSubmit: SubmitHandler<ILoginInput> = (data) => {
+  const onSubmit: SubmitHandler<AuthForm> = (data) => {
     console.log('onSubmit:', data)
   }
 

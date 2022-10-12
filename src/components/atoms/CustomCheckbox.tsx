@@ -1,8 +1,8 @@
-import { ICustomTheme } from 'interfaces'
+import { CustomTheme } from 'interfaces'
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox'
 import { Box } from '@mui/material'
 
-interface ICustomCheckboxProps extends CheckboxProps {
+interface CustomCheckboxProps extends CheckboxProps {
   branded?: boolean
 }
 
@@ -11,24 +11,24 @@ const CustomIconStyles = {
   borderRadius: '4px',
   width: 16,
   height: 16,
-  boxShadow: (theme: ICustomTheme) =>
+  boxShadow: (theme: CustomTheme) =>
     theme.palette.mode === 'dark'
       ? '0 0 0 1px rgb(16 22 26 / 40%)'
       : `inset 0 0 0 1px ${theme.palette.grey[400]}`,
-  backgroundImage: (theme: ICustomTheme) =>
+  backgroundImage: (theme: CustomTheme) =>
     theme.palette.mode === 'dark'
       ? 'linear-gradient(180deg,hsla(0,0%,100%,.05),hsla(0,0%,100%,0))'
       : 'linear-gradient(180deg,hsla(0,0%,100%,.8),hsla(0,0%,100%,0))',
 
-  backgroundColor: (theme: ICustomTheme) =>
+  backgroundColor: (theme: CustomTheme) =>
     theme.palette.mode === 'dark' ? '#394b59' : theme.palette.grey[50],
   'input:hover ~ &': {
-    backgroundColor: (theme: ICustomTheme) =>
+    backgroundColor: (theme: CustomTheme) =>
       theme.palette.mode === 'dark' ? '#30404d' : '#ebf1f5',
   },
   'input:disabled ~ &': {
     boxShadow: 'none',
-    background: (theme: ICustomTheme) =>
+    background: (theme: CustomTheme) =>
       theme.palette.mode === 'dark'
         ? 'rgba(57,75,89,.5)'
         : 'rgba(206,217,224,.5)',
@@ -37,14 +37,14 @@ const CustomIconStyles = {
 
 const CustomBrandedIconStyles = {
   ...CustomIconStyles,
-  boxShadow: (theme: ICustomTheme) =>
+  boxShadow: (theme: CustomTheme) =>
     theme.palette.mode === 'dark'
       ? '0 0 0 1px rgb(16 22 26 / 40%)'
       : `inset 0 0 0 1px ${theme.palette.primary.main}`,
 }
 
 const CustomCheckedIconStyles = {
-  backgroundColor: (theme: ICustomTheme) => theme.palette.primary.main,
+  backgroundColor: (theme: CustomTheme) => theme.palette.primary.main,
   borderRadius: '4px',
   backgroundImage:
     'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
@@ -59,7 +59,7 @@ const CustomCheckedIconStyles = {
     content: '""',
   },
   'input:hover ~ &': {
-    backgroundColor: (theme: ICustomTheme) => theme.palette.primary.dark,
+    backgroundColor: (theme: CustomTheme) => theme.palette.primary.dark,
   },
 }
 
@@ -72,7 +72,7 @@ const CustomIcon = () => <Box sx={CustomIconStyles}></Box>
 const CustomCheckedIcon = () => <Box sx={CustomCheckedIconStyles}></Box>
 const CustomBrandedIcon = () => <Box sx={CustomBrandedIconStyles}></Box>
 
-const CustomCheckbox = (props: ICustomCheckboxProps) => {
+const CustomCheckbox = (props: CustomCheckboxProps) => {
   return (
     <Checkbox
       sx={CheckBoxStyles}

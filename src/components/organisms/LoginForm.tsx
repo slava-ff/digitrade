@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { SubmitHandler, Control, UseFormHandleSubmit } from 'react-hook-form'
 import { Button, Link, Grid, Box, Typography, SxProps } from '@mui/material'
 
-import { ILoginInput, ICustomTheme } from 'interfaces'
+import { AuthForm, CustomTheme } from 'interfaces'
 import { EmailController, PasswordController } from 'components'
 import { ROUTES } from 'utils/constants'
 
@@ -14,10 +14,10 @@ const styles = {
 }
 
 type LoginForm = {
-  control: Control<ILoginInput>
-  handleSubmit: UseFormHandleSubmit<ILoginInput>
-  onSubmit: SubmitHandler<ILoginInput>
-  sx?: SxProps<ICustomTheme> | undefined
+  control: Control<AuthForm>
+  handleSubmit: UseFormHandleSubmit<AuthForm>
+  onSubmit: SubmitHandler<AuthForm>
+  sx?: SxProps<CustomTheme> | undefined
 }
 
 const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
