@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { Controller, Control } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { TextField, InputAdornment, IconButton } from '@mui/material'
-import { VisibilityOff, Visibility, Password } from '@mui/icons-material'
+import { VisibilityOff, Visibility } from '@mui/icons-material'
 
 import { AuthForm, PasswordForm } from 'interfaces'
+import { errorI18nKeyParser } from 'utils/common'
 
 type Constants = {
   PASSWORD_NAME: keyof PasswordForm
@@ -25,7 +27,6 @@ interface PasswordController {
   confirmPassword?: boolean
   label: string
   placeholder: string
-  validationText: string
   control: Control<AuthForm>
   required?: boolean
 }
@@ -34,10 +35,10 @@ const PasswordController = ({
   confirmPassword = false,
   label,
   placeholder,
-  validationText,
   control,
   required = false,
 }: PasswordController) => {
+  const { t } = useTranslation()
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   const handleMouseDownUpPassword = (
@@ -46,14 +47,13 @@ const PasswordController = ({
     event.preventDefault()
   }
 
-  const NAME = confirmPassword
+  const NAME = !confirmPassword
     ? CONSTANTS.PASSWORD_NAME
     : CONSTANTS.PASSWORD_CONFIRM_NAME
 
   return (
     <Controller
       name={NAME}
-      rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
         <TextField
@@ -65,7 +65,7 @@ const PasswordController = ({
           label={label}
           autoComplete={CONSTANTS.AUTO_COMPLETE}
           error={!!error}
-          helperText={error && error.message}
+          helperText={error && errorI18nKeyParser(error.message, t)}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">

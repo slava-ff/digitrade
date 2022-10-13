@@ -1,13 +1,10 @@
 import { Controller, Control } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { FormControl, FormControlLabel, FormHelperText } from '@mui/material'
 
 import { CustomCheckbox } from 'components'
 import { AgreementsForm, AuthForm } from 'interfaces'
-import {
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  FormHelperText,
-} from '@mui/material'
+import { errorI18nKeyParser } from 'utils/common'
 
 const styles = {
   constrol: {
@@ -28,21 +25,20 @@ const CONSTANTS: Constants = {
 
 interface AgreementsController {
   label: string | React.ReactNode
-  validationText: string
   control: Control<AuthForm>
   required?: boolean
 }
 
 const AgreementsController = ({
   label,
-  validationText,
   control,
   required = false,
 }: AgreementsController) => {
+  const { t } = useTranslation()
+
   return (
     <Controller
       name={CONSTANTS.NAME}
-      rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
         <FormControl required={required} error={!!error} sx={styles.constrol}>
@@ -58,7 +54,9 @@ const AgreementsController = ({
             }
           />
           {error && (
-            <FormHelperText error={!!error}>{error.message}</FormHelperText>
+            <FormHelperText error={!!error}>
+              {errorI18nKeyParser(error.message, t)}
+            </FormHelperText>
           )}
         </FormControl>
       )}

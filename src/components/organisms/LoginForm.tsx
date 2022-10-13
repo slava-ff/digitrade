@@ -32,7 +32,6 @@ const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
       <EmailController
         label={t('emailAddress')}
         placeholder={t('emailPlaceholder')}
-        validationText={t('emailValidation')}
         control={control}
         required
       />
@@ -40,7 +39,6 @@ const LoginForm = ({ control, handleSubmit, onSubmit, sx }: LoginForm) => {
       <PasswordController
         label={t('password')}
         placeholder={t('passwordPlaceholder')}
-        validationText={t('passwordValidation')}
         control={control}
         required
       />

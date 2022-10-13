@@ -37,15 +37,13 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
       <EmailController
         label={t('emailAddress')}
         placeholder={t('emailPlaceholder')}
-        validationText={t('emailValidation')}
         control={control}
-        required
+        // required
       />
 
       <PasswordController
         label={t('password')}
         placeholder={t('passwordPlaceholder')}
-        validationText={t('passwordValidation')}
         control={control}
         required
       />
@@ -53,7 +51,6 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
       <PasswordController
         label={t('passwordConfirm')}
         placeholder={t('passwordConfirmPlaceholder')}
-        validationText={t('passwordValidation')}
         control={control}
         confirmPassword
         required
@@ -62,7 +59,6 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
       <AgreementsController
         label={<SignUpTermsText />}
         control={control}
-        validationText="TO-DO: validation text"
         required
       />
 

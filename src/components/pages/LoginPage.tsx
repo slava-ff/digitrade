@@ -1,11 +1,23 @@
 import { useEffect, useState } from 'react'
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import { AuthForm } from 'interfaces'
 import { LoginForm, AuthTemplate } from 'components'
 import { layoutSelector } from 'slices'
 import { useAppSelector } from 'hooks/reduxToolkitHooks'
-import { useTranslation } from 'react-i18next'
+import { VALIDATION_TEXTS } from 'utils/constants'
+
+const schema = yup.object({
+  email: yup
+    .string()
+    .required(VALIDATION_TEXTS.EMAIL_REQUIRED)
+    .email(VALIDATION_TEXTS.EMAIL_VALID),
+
+  password: yup.string().required(VALIDATION_TEXTS.PASSWORD_REQUIRED),
+})
 
 const defaultValues: DefaultValues<AuthForm> = {
   email: '',
@@ -38,6 +50,7 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm<AuthForm>({
     defaultValues,
+    resolver: yupResolver(schema),
   })
 
   // TO-DO: post login data

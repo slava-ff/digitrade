@@ -1,7 +1,9 @@
 import { Controller, Control } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 import { TextField } from '@mui/material'
 
 import { AuthForm, EmailForm } from 'interfaces'
+import { errorI18nKeyParser } from 'utils/common'
 
 type Constants = {
   NAME: keyof EmailForm
@@ -16,7 +18,6 @@ const CONSTANTS: Constants = {
 interface EmailController {
   label: string
   placeholder: string
-  validationText: string
   control: Control<AuthForm>
   required?: boolean
 }
@@ -24,14 +25,14 @@ interface EmailController {
 const EmailController = ({
   label,
   placeholder,
-  validationText,
   control,
   required = false,
 }: EmailController) => {
+  const { t } = useTranslation()
+
   return (
     <Controller
       name={CONSTANTS.NAME}
-      rules={{ required: validationText }}
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
         <TextField
@@ -42,7 +43,7 @@ const EmailController = ({
           label={label}
           autoComplete={CONSTANTS.AUTO_COMPLETE}
           error={!!error}
-          helperText={error && error.message}
+          helperText={error && errorI18nKeyParser(error.message, t)}
           {...field}
         />
       )}

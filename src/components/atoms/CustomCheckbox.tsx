@@ -87,6 +87,7 @@ const CustomCheckbox = React.forwardRef<HTMLInputElement, CustomCheckboxProps>(
         icon={props.branded ? <CustomBrandedIcon /> : <CustomIcon />}
         inputProps={{ 'aria-label': 'Checkbox' }}
         {...props}
+        required={true}
       />
     )
   }
