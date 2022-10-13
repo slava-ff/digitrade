@@ -1,6 +1,8 @@
-import { CustomTheme } from 'interfaces'
+import React from 'react'
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox'
 import { Box } from '@mui/material'
+
+import { CustomTheme } from 'interfaces'
 
 interface CustomCheckboxProps extends CheckboxProps {
   branded?: boolean
@@ -72,18 +74,22 @@ const CustomIcon = () => <Box sx={CustomIconStyles}></Box>
 const CustomCheckedIcon = () => <Box sx={CustomCheckedIconStyles}></Box>
 const CustomBrandedIcon = () => <Box sx={CustomBrandedIconStyles}></Box>
 
-const CustomCheckbox = (props: CustomCheckboxProps) => {
-  return (
-    <Checkbox
-      sx={CheckBoxStyles}
-      // disableRipple
-      color="default"
-      checkedIcon={<CustomCheckedIcon />}
-      icon={props.branded ? <CustomBrandedIcon /> : <CustomIcon />}
-      inputProps={{ 'aria-label': 'Checkbox' }}
-      {...props}
-    />
-  )
-}
+const CustomCheckbox = React.forwardRef<HTMLInputElement, CustomCheckboxProps>(
+  (props, ref) => {
+    //(props: CustomCheckboxProps) => {
+    return (
+      <Checkbox
+        inputRef={ref}
+        sx={CheckBoxStyles}
+        // disableRipple
+        color="default"
+        checkedIcon={<CustomCheckedIcon />}
+        icon={props.branded ? <CustomBrandedIcon /> : <CustomIcon />}
+        inputProps={{ 'aria-label': 'Checkbox' }}
+        {...props}
+      />
+    )
+  }
+)
 
 export default CustomCheckbox

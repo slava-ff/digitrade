@@ -46,19 +46,17 @@ const AgreementsController = ({
       control={control}
       render={({ field, fieldState: { invalid, error } }) => (
         <FormControl required={required} error={!!error} sx={styles.constrol}>
-          <FormGroup row>
-            <FormControlLabel
-              label={label}
-              sx={styles.constrolLabel}
-              control={
-                <CustomCheckbox
-                  required={required}
-                  id={CONSTANTS.NAME}
-                  {...field}
-                />
-              }
-            />
-          </FormGroup>
+          <FormControlLabel
+            label={label}
+            sx={styles.constrolLabel}
+            control={
+              <CustomCheckbox
+                required={required}
+                id={CONSTANTS.NAME}
+                {...field}
+              />
+            }
+          />
           {error && (
             <FormHelperText error={!!error}>{error.message}</FormHelperText>
           )}
