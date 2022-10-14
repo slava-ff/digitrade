@@ -71,6 +71,7 @@ const SignUpPage = () => {
   const {
     handleSubmit,
     control,
+    setError,
     formState: { errors },
   } = useForm<AuthForm>({
     defaultValues,
@@ -80,6 +81,11 @@ const SignUpPage = () => {
   // TO-DO: post login data
   const onSubmit: SubmitHandler<AuthForm> = (data) => {
     console.log('onSubmit:', data)
+    // TO-DO: set errors from BE here
+    setError('email', {
+      type: 'manual',
+      message: 'Dont Forget Your Username Should Be Cool!',
+    })
   }
 
   return (
