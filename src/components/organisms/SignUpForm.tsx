@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { SubmitHandler, Control, UseFormHandleSubmit } from 'react-hook-form'
-import { Button, Link, Grid, Box, Typography, SxProps } from '@mui/material'
+import { Button, Link, Grid, Box, Typography } from '@mui/material'
 
-import { AuthForm, CustomTheme } from 'interfaces'
+import { AuthForm } from 'interfaces'
 import {
   EmailController,
   PasswordController,
@@ -13,19 +12,12 @@ import { ROUTES } from 'utils/constants'
 
 const styles = {
   submitBtn: { mt: 3 },
-  signUpDescription: { mt: 1.5, justifyContent: 'center' },
-  signUpBox: { lineHeight: '26px', marginLeft: '2px' },
-  signUpBtn: { padding: 0 },
+  additionalPageDescription: { mt: 1.5, justifyContent: 'center' },
+  additionalPageBox: { lineHeight: '26px', marginLeft: '2px' },
+  additionalPageBtn: { padding: 0 },
 }
 
-type SignUpForm = {
-  control: Control<AuthForm>
-  handleSubmit: UseFormHandleSubmit<AuthForm>
-  onSubmit: SubmitHandler<AuthForm>
-  sx?: SxProps<CustomTheme> | undefined
-}
-
-const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
+const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: AuthForm) => {
   const { t } = useTranslation()
   return (
     <Box
@@ -38,7 +30,7 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
         label={t('emailAddress')}
         placeholder={t('emailPlaceholder')}
         control={control}
-        // required
+        required
       />
 
       <PasswordController
@@ -66,16 +58,16 @@ const SignUpForm = ({ control, handleSubmit, onSubmit, sx }: SignUpForm) => {
         {t('signUp')}
       </Button>
 
-      <Grid container spacing={0.5} sx={styles.signUpDescription}>
+      <Grid container spacing={0.5} sx={styles.additionalPageDescription}>
         <Box key={'alreadyAMember'}>
           <Typography variant="body2">{t('alreadyAMember')}</Typography>
         </Box>
-        <Box key={'logIn'} sx={styles.signUpBox}>
+        <Box key={'logIn'} sx={styles.additionalPageBox}>
           <Button
             component={Link}
             href={ROUTES.LOGIN}
             variant="text"
-            sx={styles.signUpBtn}
+            sx={styles.additionalPageBtn}
           >
             {t('logIn')}
           </Button>

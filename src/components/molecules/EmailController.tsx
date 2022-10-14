@@ -2,7 +2,7 @@ import { Controller, Control } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { TextField } from '@mui/material'
 
-import { AuthForm, EmailForm } from 'interfaces'
+import { AuthFormFields, EmailForm } from 'interfaces'
 import { errorI18nKeyParser } from 'utils/common'
 
 type Constants = {
@@ -18,7 +18,7 @@ const CONSTANTS: Constants = {
 interface EmailController {
   label: string
   placeholder: string
-  control: Control<AuthForm>
+  control: Control<AuthFormFields>
   required?: boolean
 }
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { FormControl, FormControlLabel, FormHelperText } from '@mui/material'
 
 import { CustomCheckbox } from 'components'
-import { AgreementsForm, AuthForm } from 'interfaces'
+import { AgreementsForm, AuthFormFields } from 'interfaces'
 import { errorI18nKeyParser } from 'utils/common'
 
 const styles = {
@@ -25,7 +25,7 @@ const CONSTANTS: Constants = {
 
 interface AgreementsController {
   label: string | React.ReactNode
-  control: Control<AuthForm>
+  control: Control<AuthFormFields>
   required?: boolean
 }
 

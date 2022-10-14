@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { TextField, InputAdornment, IconButton } from '@mui/material'
 import { VisibilityOff, Visibility } from '@mui/icons-material'
 
-import { AuthForm, PasswordForm } from 'interfaces'
+import { AuthFormFields, PasswordForm } from 'interfaces'
 import { errorI18nKeyParser } from 'utils/common'
 
 type Constants = {
@@ -27,7 +27,7 @@ interface PasswordController {
   confirmPassword?: boolean
   label: string
   placeholder: string
-  control: Control<AuthForm>
+  control: Control<AuthFormFields>
   required?: boolean
 }
 

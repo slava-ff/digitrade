@@ -4,15 +4,10 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { AuthFormFields } from 'interfaces'
-import { SignUpForm, AuthTemplate } from 'components'
+import { ResetPasswordForm, AuthTemplate } from 'components'
 import { REGEX_RULES, VALIDATION_TEXTS } from 'utils/constants'
 
 const schema = yup.object({
-  email: yup
-    .string()
-    .required(VALIDATION_TEXTS.EMAIL_REQUIRED)
-    .email(VALIDATION_TEXTS.EMAIL_VALID),
-
   password: yup
     .string()
     .required(VALIDATION_TEXTS.PASSWORD_REQUIRED)
@@ -34,18 +29,14 @@ const schema = yup.object({
       [yup.ref('password'), null],
       VALIDATION_TEXTS.PASSWORD_CONFIRM_MATCH
     ),
-
-  agreements: yup.boolean().oneOf([true], VALIDATION_TEXTS.AGREEMENTS_REQUIRED),
 })
 
 const defaultValues: DefaultValues<AuthFormFields> = {
-  email: '',
   password: '',
   password_confirm: '',
-  agreements: false,
 }
 
-const SignUpPage = () => {
+const ResetPasswordPage = () => {
   const { t } = useTranslation()
 
   const {
@@ -58,22 +49,16 @@ const SignUpPage = () => {
     resolver: yupResolver(schema),
   })
 
-  // TO-DO: post signup data
   const onSubmit: SubmitHandler<AuthFormFields> = (data) => {
     console.log('onSubmit:', data)
-    // TO-DO: set errors from BE here
-    setError('email', {
-      type: 'manual',
-      message: 'Dont Forget Your Username Should Be Cool!',
-    })
   }
 
   return (
     <AuthTemplate
-      headerText={t('signUp')}
-      descriptionText={t('signUpDescription')}
+      headerText={t('resetPassword')}
+      descriptionText={t('resetPasswordDescription')}
       form={
-        <SignUpForm
+        <ResetPasswordForm
           control={control}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
@@ -83,4 +68,4 @@ const SignUpPage = () => {
   )
 }
 
-export default SignUpPage
+export default ResetPasswordPage

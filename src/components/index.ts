@@ -16,6 +16,8 @@ export { default as SignUpTermsText } from 'components/molecules/SignUpTermsText
 // organisms
 export { default as LoginForm } from 'components/organisms/LoginForm'
 export { default as SignUpForm } from 'components/organisms/SignUpForm'
+export { default as ForgotPasswordForm } from 'components/organisms/ForgotPasswordForm'
+export { default as ResetPasswordForm } from 'components/organisms/ResetPasswordForm'
 
 // templates
 export { default as AuthTemplate } from 'components/templates/AuthTemplate'
@@ -23,6 +25,8 @@ export { default as AuthTemplate } from 'components/templates/AuthTemplate'
 // pages
 export { default as LoginPage } from 'components/pages/LoginPage'
 export { default as SignUpPage } from 'components/pages/SignUpPage'
+export { default as ForgotPasswordPage } from 'components/pages/ForgotPasswordPage'
+export { default as ResetPasswordPage } from 'components/pages/ResetPasswordPage'
 
 // providers
 export { default as DynamicThemeProvider } from 'components/providers/DynamicThemeProvider'

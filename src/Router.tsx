@@ -1,6 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { InitialRoute, PrivateRoute, LoginPage, SignUpPage } from 'components'
+import {
+  InitialRoute,
+  PrivateRoute,
+  LoginPage,
+  SignUpPage,
+  ForgotPasswordPage,
+  ResetPasswordPage,
+} from 'components'
 import { ROUTES } from 'utils/constants'
 
 function Router() {
@@ -13,6 +20,11 @@ function Router() {
           </Route>
           <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
+          <Route
+            path={ROUTES.FORGOT_PASSWORD}
+            element={<ForgotPasswordPage />}
+          />
+          <Route path={ROUTES.RESET_PASSWORD} element={<ResetPasswordPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

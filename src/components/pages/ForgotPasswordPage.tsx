@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { AuthFormFields } from 'interfaces'
-import { LoginForm, AuthTemplate } from 'components'
+import { ForgotPasswordForm, AuthTemplate } from 'components'
 import { VALIDATION_TEXTS } from 'utils/constants'
 
 const schema = yup.object({
@@ -12,16 +12,13 @@ const schema = yup.object({
     .string()
     .required(VALIDATION_TEXTS.EMAIL_REQUIRED)
     .email(VALIDATION_TEXTS.EMAIL_VALID),
-
-  password: yup.string().required(VALIDATION_TEXTS.PASSWORD_REQUIRED),
 })
 
 const defaultValues: DefaultValues<AuthFormFields> = {
   email: '',
-  password: '',
 }
 
-const LoginPage = () => {
+const ForgotPasswordPage = () => {
   const { t } = useTranslation()
 
   const {
@@ -39,10 +36,10 @@ const LoginPage = () => {
 
   return (
     <AuthTemplate
-      headerText={t('logIn')}
-      descriptionText={t('loginDescription')}
+      headerText={t('forgotPassword')}
+      descriptionText={t('forgotPasswordDescription')}
       form={
-        <LoginForm
+        <ForgotPasswordForm
           control={control}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
@@ -52,4 +49,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default ForgotPasswordPage

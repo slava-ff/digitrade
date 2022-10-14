@@ -4,7 +4,8 @@ export const ROUTES = {
   PRIVATE_ROUTE: '',
   LOGIN: 'login',
   SIGN_UP: 'signup',
-  FORGOT_PASSWORD: '#',
+  FORGOT_PASSWORD: 'forgot-password',
+  RESET_PASSWORD: 'reset-password',
 }
 
 // keys for 't' function of i18next, they're parsed in Controllers

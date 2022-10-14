@@ -1,4 +1,6 @@
+import { SubmitHandler, Control, UseFormHandleSubmit } from 'react-hook-form'
 import { Theme, ThemeOptions } from '@mui/material/styles'
+import { SxProps } from '@mui/material'
 
 export type Children = {
   children: React.ReactNode
@@ -22,7 +24,14 @@ export type AgreementsForm = {
   agreements?: boolean
 }
 
-export type AuthForm = EmailForm & PasswordForm & AgreementsForm
+export type AuthFormFields = EmailForm & PasswordForm & AgreementsForm
+
+export type AuthForm = {
+  control: Control<AuthFormFields>
+  handleSubmit: UseFormHandleSubmit<AuthFormFields>
+  onSubmit: SubmitHandler<AuthFormFields>
+  sx?: SxProps<CustomTheme> | undefined
+}
 
 export interface CustomTheme extends Theme {
   // status: {
