@@ -10,6 +10,7 @@ import {
   LogoImage,
   AuthDescription,
   Form,
+  BackButton,
 } from 'components'
 
 const styles = {
@@ -23,7 +24,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
-  authDescription: { mt: 3 },
+  logoImage: { mb: 3 },
+  authDescription: { mt: 0 },
   box_form: { mt: 1 },
   copyright: { mt: 'auto', pt: 1.5 },
 }
@@ -32,9 +34,17 @@ type AuthTemplate = {
   headerText: string
   descriptionText: string
   form: React.ReactNode
+  backBtnText?: string
+  backBtnLink?: string
 }
 
-const AuthTemplate = ({ headerText, descriptionText, form }: AuthTemplate) => {
+const AuthTemplate = ({
+  headerText,
+  descriptionText,
+  form,
+  backBtnText,
+  backBtnLink,
+}: AuthTemplate) => {
   const fetchedLayout = useAppSelector(layoutSelector)
   const [dynamicLayout, setDynamicLayout] = useState(fetchedLayout)
 
@@ -56,13 +66,19 @@ const AuthTemplate = ({ headerText, descriptionText, form }: AuthTemplate) => {
 
   const logoLink = dynamicLayout?.layout?.loginPage.logoLink
 
+  const showBackBtn = !!backBtnLink && !!backBtnText
+
   return (
     <Grid container component="main" sx={styles.grid_container}>
       <SideImage imgLink={sideImageLink || ''} isShow={isImageLeftAligned} />
 
       <Grid item xs={12} md={6} component={Paper} elevation={0} square>
         <Box sx={styles.box_container}>
-          <LogoImage imgLink={logoLink} />
+          <LogoImage imgLink={logoLink} sx={styles.logoImage} />
+
+          {showBackBtn && (
+            <BackButton backBtnText={backBtnText} backBtnLink={backBtnLink} />
+          )}
 
           <AuthDescription
             headerText={headerText}

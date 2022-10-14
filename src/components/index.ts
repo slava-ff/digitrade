@@ -12,6 +12,7 @@ export { default as LogoImage } from 'components/molecules/LogoImage'
 export { default as AuthDescription } from 'components/molecules/AuthDescription'
 export { default as AgreementsController } from 'components/molecules/AgreementsController'
 export { default as SignUpTermsText } from 'components/molecules/SignUpTermsText'
+export { default as BackButton } from 'components/molecules/BackButton'
 
 // organisms
 export { default as LoginForm } from 'components/organisms/LoginForm'

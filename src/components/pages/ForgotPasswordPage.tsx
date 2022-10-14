@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { AuthFormFields } from 'interfaces'
 import { ForgotPasswordForm, AuthTemplate } from 'components'
-import { VALIDATION_TEXTS } from 'utils/constants'
+import { VALIDATION_TEXTS, ROUTES } from 'utils/constants'
 
 const schema = yup.object({
   email: yup
@@ -38,6 +38,8 @@ const ForgotPasswordPage = () => {
     <AuthTemplate
       headerText={t('forgotPassword')}
       descriptionText={t('forgotPasswordDescription')}
+      backBtnText={t('backToLogIn')}
+      backBtnLink={ROUTES.LOGIN}
       form={
         <ForgotPasswordForm
           control={control}
