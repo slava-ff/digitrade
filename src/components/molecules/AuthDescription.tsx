@@ -4,7 +4,11 @@ import { CustomTheme } from 'interfaces'
 import { useTranslation } from 'react-i18next'
 
 const styles = {
-  description: { fontWeight: 500, letterSpacing: '0.1px' },
+  description: {
+    fontWeight: 500,
+    letterSpacing: '0.1px',
+    lineHeight: '1.5rem',
+  },
 }
 
 type AuthDescription = {

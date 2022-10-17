@@ -30,6 +30,7 @@ export type AuthForm = {
   control: Control<AuthFormFields>
   handleSubmit: UseFormHandleSubmit<AuthFormFields>
   onSubmit: SubmitHandler<AuthFormFields>
+  loading?: boolean
   sx?: SxProps<CustomTheme> | undefined
 }
 

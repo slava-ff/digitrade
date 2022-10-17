@@ -6,6 +6,7 @@ export const ROUTES = {
   SIGN_UP: 'signup',
   FORGOT_PASSWORD: 'forgot-password',
   RESET_PASSWORD: 'reset-password',
+  CHECK_EMAIL: 'check-email',
 }
 
 // keys for 't' function of i18next, they're parsed in Controllers

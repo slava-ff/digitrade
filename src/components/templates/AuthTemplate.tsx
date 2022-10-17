@@ -33,7 +33,7 @@ const styles = {
 type AuthTemplate = {
   headerText: string
   descriptionText: string
-  form: React.ReactNode
+  form?: React.ReactNode
   backBtnText?: string
   backBtnLink?: string
 }
@@ -86,7 +86,7 @@ const AuthTemplate = ({
             sx={styles.authDescription}
           />
 
-          <Form form={form} sx={styles.box_form} />
+          {form && <Form form={form} sx={styles.box_form} />}
 
           <CompanyInfo sx={styles.copyright} />
         </Box>

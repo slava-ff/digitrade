@@ -35,5 +35,9 @@
   "newPasswordConfirmLabel": "Confirm New Password",
   "newPasswordConfirmPlaceholder": "Enter your new password again",
 
+  "checkYourEmail": "Check Your Email",
+  "checkYourEmailDescription": "We have sent an email with instructions to reset your password to ",
+  "backToForgotPassword": "Back to Forgot Password",
+
   "EXAMPLE: © COMPANY INFO": "© COMPANY INFO"
 }

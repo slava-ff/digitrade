@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Button, Box } from '@mui/material'
+import { Button, Box, CircularProgress } from '@mui/material'
 
 import { AuthForm } from 'interfaces'
 import { EmailController } from 'components'
@@ -12,6 +12,7 @@ const ForgotPasswordForm = ({
   control,
   handleSubmit,
   onSubmit,
+  loading = false,
   sx,
 }: AuthForm) => {
   const { t } = useTranslation()
@@ -29,7 +30,14 @@ const ForgotPasswordForm = ({
         required
       />
 
-      <Button type="submit" fullWidth variant="contained" sx={styles.submitBtn}>
+      <Button
+        fullWidth
+        type="submit"
+        variant="contained"
+        disabled={loading}
+        startIcon={loading && <CircularProgress color="inherit" size={16} />}
+        sx={styles.submitBtn}
+      >
         {t('sendResetInstructionsBtn')}
       </Button>
     </Box>

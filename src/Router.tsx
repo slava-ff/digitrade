@@ -7,6 +7,7 @@ import {
   SignUpPage,
   ForgotPasswordPage,
   ResetPasswordPage,
+  CheckEmailPage,
 } from 'components'
 import { ROUTES } from 'utils/constants'
 
@@ -25,6 +26,7 @@ function Router() {
             element={<ForgotPasswordPage />}
           />
           <Route path={ROUTES.RESET_PASSWORD} element={<ResetPasswordPage />} />
+          <Route path={ROUTES.CHECK_EMAIL} element={<CheckEmailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

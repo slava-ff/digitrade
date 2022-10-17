@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import * as yup from 'yup'
@@ -23,6 +24,7 @@ const defaultValues: DefaultValues<AuthFormFields> = {
 
 const LoginPage = () => {
   const { t } = useTranslation()
+  const [loading, setLoading] = useState<boolean>(false)
 
   const {
     handleSubmit,
@@ -34,6 +36,7 @@ const LoginPage = () => {
   })
 
   const onSubmit: SubmitHandler<AuthFormFields> = (data) => {
+    setLoading(true)
     console.log('onSubmit:', data)
   }
 
@@ -46,6 +49,7 @@ const LoginPage = () => {
           control={control}
           handleSubmit={handleSubmit}
           onSubmit={onSubmit}
+          loading={loading}
         />
       }
     />

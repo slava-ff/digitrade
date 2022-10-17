@@ -28,6 +28,7 @@ export { default as LoginPage } from 'components/pages/LoginPage'
 export { default as SignUpPage } from 'components/pages/SignUpPage'
 export { default as ForgotPasswordPage } from 'components/pages/ForgotPasswordPage'
 export { default as ResetPasswordPage } from 'components/pages/ResetPasswordPage'
+export { default as CheckEmailPage } from 'components/pages/CheckEmailPage'
 
 // providers
 export { default as DynamicThemeProvider } from 'components/providers/DynamicThemeProvider'
