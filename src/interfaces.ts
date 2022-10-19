@@ -45,3 +45,20 @@ export interface CustomThemeOptions extends ThemeOptions {
   //   danger?: string
   // }
 }
+
+// type Modify<T, R> = Omit<T, keyof R> & R
+
+// export type CustomTheme = Modify<
+//   Theme,
+//   {
+//     palette: { brand: { [key: string]: string } }
+//   // status: {
+//   //   danger: string
+//   // }
+// }>
+// // allow configuration using `createTheme`
+// export interface CustomThemeOptions extends ThemeOptions {
+//   // status?: {
+//   //   danger?: string
+//   // }
+// }

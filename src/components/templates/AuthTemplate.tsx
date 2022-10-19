@@ -55,16 +55,16 @@ const AuthTemplate = ({
   }, [fetchedLayout])
 
   const isImageLeftAligned =
-    dynamicLayout?.layout?.loginPage.isSideImage &&
-    dynamicLayout?.layout?.loginPage.alignmentToTheLeft
+    dynamicLayout.layout.loginPage.isSideImage &&
+    dynamicLayout.layout.loginPage.alignmentToTheLeft
 
   const isImageRightAligned =
-    dynamicLayout?.layout?.loginPage.isSideImage &&
-    !dynamicLayout?.layout?.loginPage.alignmentToTheLeft
+    dynamicLayout.layout.loginPage.isSideImage &&
+    !dynamicLayout.layout.loginPage.alignmentToTheLeft
 
-  const sideImageLink = dynamicLayout?.layout?.loginPage.sideImageLink
+  const sideImageLink = dynamicLayout.layout.loginPage.sideImageLink
 
-  const logoLink = dynamicLayout?.layout?.loginPage.logoLink
+  const logoLink = dynamicLayout.layout.loginPage.logoLink
 
   const showBackBtn = !!backBtnLink && !!backBtnText
 
